@@ -2,18 +2,6 @@
   max-width: 56rem;
 }
 
-h1 {
-  margin: 0 0 0.5rem;
-  font-size: 1.75rem;
-}
-
-.lead {
-  margin: 0 0 1.25rem;
-  color: var(--cv-muted);
-  font-size: 1.05rem;
-  line-height: 1.55;
-}
-
 .grid {
   display: grid;
   gap: 1rem;
@@ -30,17 +18,21 @@ h1 {
   gap: 0.65rem;
 }
 
-h2 {
+.card h2 {
   margin: 0;
   font-size: 1.1rem;
+  font-weight: 600;
+  line-height: var(--cv-type-lh-tight);
+  color: var(--cv-text);
 }
 
 .desc {
   margin: 0;
   flex: 1;
-  line-height: 1.55;
+  font-size: var(--cv-type-body);
+  font-weight: 400;
+  line-height: var(--cv-type-lh-body);
   color: var(--cv-muted);
-  font-size: 0.95rem;
 }
 
 .tech {

@@ -2,18 +2,6 @@
   max-width: 48rem;
 }
 
-h1 {
-  margin: 0 0 0.5rem;
-  font-size: 1.75rem;
-}
-
-.lead {
-  margin: 0 0 1.25rem;
-  color: var(--cv-muted);
-  font-size: 1.05rem;
-  line-height: 1.55;
-}
-
 .timeline {
   list-style: none;
   margin: 0;
@@ -44,20 +32,26 @@ h1 {
   padding-left: 1rem;
 }
 
-h2 {
+.body h2 {
   margin: 0 0 0.25rem;
   font-size: 1.15rem;
+  font-weight: 600;
+  line-height: var(--cv-type-lh-tight);
+  color: var(--cv-text);
 }
 
 .company {
   margin: 0 0 0.75rem;
-  font-size: 0.95rem;
+  font-size: var(--cv-type-caption);
+  font-weight: 500;
   color: var(--cv-accent);
 }
 
 .desc {
   margin: 0 0 0.75rem;
-  line-height: 1.6;
+  font-size: var(--cv-type-body);
+  font-weight: 400;
+  line-height: var(--cv-type-lh-body);
   color: var(--cv-muted);
 }
 

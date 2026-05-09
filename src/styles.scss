@@ -30,4 +30,31 @@ body {
   --cv-border: #d8dde4;
   --cv-accent: #1e5a8a;
   --cv-accent-contrast: #ffffff;
+
+  /* Hierarquia: título de página > subtítulo/lead > corpo */
+  --cv-type-page-title: clamp(1.65rem, 3vw, 1.95rem);
+  --cv-type-hero-title: clamp(2rem, 5vw, 2.85rem);
+  --cv-type-subtitle: 1.125rem;
+  --cv-type-body: 1.05rem;
+  --cv-type-caption: 0.875rem;
+  --cv-type-lh-tight: 1.2;
+  --cv-type-lh-body: 1.65;
+}
+
+/* Páginas internas: h1 (nível 1) > p.lead (nível 2) > conteúdo (nível 3) */
+section.page > h1 {
+  margin: 0 0 0.35rem;
+  font-size: var(--cv-type-page-title);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: var(--cv-type-lh-tight);
+  color: var(--cv-text);
+}
+
+section.page > p.lead {
+  margin: 0 0 1.5rem;
+  font-size: var(--cv-type-body);
+  font-weight: 400;
+  line-height: var(--cv-type-lh-body);
+  color: var(--cv-muted);
 }
