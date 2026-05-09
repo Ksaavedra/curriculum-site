@@ -1,9 +1,10 @@
+import { appPath } from '../constants/internal-routes';
 import { CvContent } from '../models/cv.types';
 
 export const CV_DATA: CvContent = {
   primaryCtas: [
-    { label: 'Entrar em contato', route: '/contato', variant: 'primary' },
-    { label: 'Ver experiência', route: '/experiencia', variant: 'ghost' },
+    { label: 'Entrar em contato', route: appPath('contato'), variant: 'primary' },
+    { label: 'Ver experiência', route: appPath('experiencia'), variant: 'ghost' },
   ],
   highlights: [
     { value: '5+', label: 'Anos em desenvolvimento web' },

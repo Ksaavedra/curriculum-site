@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
+import { appPath } from '../../core/constants/internal-routes';
 
 @Component({
   selector: 'app-header',
@@ -9,12 +10,12 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
 })
 export class HeaderComponent {
   readonly links = [
-    { path: '/', label: 'Início', exact: true },
-    { path: '/sobre', label: 'Sobre', exact: false },
-    { path: '/experiencia', label: 'Experiência', exact: false },
-    { path: '/formacao', label: 'Formação', exact: false },
-    { path: '/habilidades', label: 'Habilidades', exact: false },
-    { path: '/projetos', label: 'Projetos', exact: false },
-    { path: '/contato', label: 'Contato', exact: false },
+    { path: appPath('home'), label: 'Início', exact: true },
+    { path: appPath('sobre'), label: 'Sobre', exact: false },
+    { path: appPath('experiencia'), label: 'Experiência', exact: false },
+    { path: appPath('formacao'), label: 'Formação', exact: false },
+    { path: appPath('habilidades'), label: 'Habilidades', exact: false },
+    { path: appPath('projetos'), label: 'Projetos', exact: false },
+    { path: appPath('contato'), label: 'Contato', exact: false },
   ];
 }
