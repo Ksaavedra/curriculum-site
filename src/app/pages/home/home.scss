@@ -1,0 +1,72 @@
+.hero {
+  max-width: 42rem;
+}
+
+.eyebrow {
+  font-size: 0.9rem;
+  color: var(--cv-muted);
+  margin: 0 0 0.5rem;
+}
+
+h1 {
+  font-size: clamp(2rem, 5vw, 2.75rem);
+  letter-spacing: -0.03em;
+  margin: 0 0 0.5rem;
+  color: var(--cv-text);
+}
+
+.headline {
+  font-size: 1.15rem;
+  color: var(--cv-accent);
+  margin: 0 0 1rem;
+}
+
+.summary {
+  font-size: 1.05rem;
+  line-height: 1.65;
+  color: var(--cv-muted);
+  margin: 0 0 1.75rem;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.65rem 1.1rem;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  text-decoration: none;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition:
+    background 0.15s ease,
+    color 0.15s ease,
+    border-color 0.15s ease;
+
+  &.primary {
+    background: var(--cv-accent);
+    color: var(--cv-accent-contrast);
+
+    &:hover {
+      filter: brightness(1.05);
+    }
+  }
+
+  &.ghost {
+    background: transparent;
+    color: var(--cv-text);
+    border-color: var(--cv-border);
+
+    &:hover {
+      border-color: var(--cv-accent);
+      color: var(--cv-accent);
+    }
+  }
+}

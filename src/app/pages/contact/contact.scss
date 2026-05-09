@@ -1,0 +1,96 @@
+.page {
+  max-width: 28rem;
+}
+
+h1 {
+  margin: 0 0 0.5rem;
+  font-size: 1.75rem;
+}
+
+.lead {
+  margin: 0 0 1.25rem;
+  color: var(--cv-muted);
+}
+
+.banner {
+  padding: 0.65rem 0.85rem;
+  border-radius: 8px;
+  margin: 0 0 1rem;
+  font-size: 0.95rem;
+
+  &.ok {
+    background: color-mix(in oklab, var(--cv-accent) 15%, transparent);
+    border: 1px solid color-mix(in oklab, var(--cv-accent) 35%, transparent);
+  }
+
+  &.err {
+    background: color-mix(in oklab, #c62828 12%, transparent);
+    border: 1px solid color-mix(in oklab, #c62828 35%, transparent);
+  }
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+label {
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+input,
+textarea {
+  font: inherit;
+  padding: 0.55rem 0.65rem;
+  border-radius: 8px;
+  border: 1px solid var(--cv-border);
+  background: var(--cv-bg);
+  color: var(--cv-text);
+
+  &:focus {
+    outline: 2px solid color-mix(in oklab, var(--cv-accent) 45%, transparent);
+    outline-offset: 1px;
+  }
+}
+
+textarea {
+  resize: vertical;
+  min-height: 8rem;
+}
+
+.hint {
+  font-size: 0.8rem;
+
+  &.err {
+    color: #b71c1c;
+  }
+}
+
+.btn {
+  align-self: flex-start;
+  padding: 0.65rem 1.25rem;
+  border-radius: 8px;
+  border: none;
+  font: inherit;
+  font-weight: 500;
+  cursor: pointer;
+  background: var(--cv-accent);
+  color: var(--cv-accent-contrast);
+
+  &:disabled {
+    opacity: 0.65;
+    cursor: not-allowed;
+  }
+
+  &:not(:disabled):hover {
+    filter: brightness(1.05);
+  }
+}

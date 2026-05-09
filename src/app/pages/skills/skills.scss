@@ -1,0 +1,30 @@
+.page {
+  max-width: 40rem;
+}
+
+h1 {
+  margin: 0 0 0.5rem;
+  font-size: 1.75rem;
+}
+
+.lead {
+  margin: 0 0 1.25rem;
+  color: var(--cv-muted);
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  li {
+    padding: 0.45rem 0.85rem;
+    border-radius: 999px;
+    border: 1px solid var(--cv-border);
+    background: var(--cv-surface-2);
+    font-size: 0.9rem;
+  }
+}

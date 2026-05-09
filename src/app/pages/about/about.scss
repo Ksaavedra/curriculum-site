@@ -1,0 +1,45 @@
+.page {
+  max-width: 40rem;
+}
+
+h1 {
+  margin: 0 0 1rem;
+  font-size: 1.75rem;
+  letter-spacing: -0.02em;
+}
+
+.lead {
+  font-size: 1.05rem;
+  line-height: 1.65;
+  color: var(--cv-muted);
+  margin: 0 0 2rem;
+}
+
+.meta {
+  display: grid;
+  gap: 1rem 2rem;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  margin: 0;
+
+  dt {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--cv-muted);
+    margin: 0 0 0.25rem;
+  }
+
+  dd {
+    margin: 0;
+    font-size: 1rem;
+  }
+
+  a {
+    color: var(--cv-accent);
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}

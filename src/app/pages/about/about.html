@@ -1,0 +1,36 @@
+<section class="page">
+  <h1>Sobre</h1>
+  <p class="lead">{{ profile.summary }}</p>
+  <dl class="meta">
+    <div>
+      <dt>Local</dt>
+      <dd>{{ profile.location }}</dd>
+    </div>
+    <div>
+      <dt>E-mail</dt>
+      <dd>
+        <a [href]="'mailto:' + profile.email">{{ profile.email }}</a>
+      </dd>
+    </div>
+    <div>
+      <dt>Telefone</dt>
+      <dd>{{ profile.phone }}</dd>
+    </div>
+    @if (profile.linkedin) {
+      <div>
+        <dt>LinkedIn</dt>
+        <dd>
+          <a [href]="profile.linkedin" target="_blank" rel="noopener noreferrer">Abrir perfil</a>
+        </dd>
+      </div>
+    }
+    @if (profile.github) {
+      <div>
+        <dt>GitHub</dt>
+        <dd>
+          <a [href]="profile.github" target="_blank" rel="noopener noreferrer">Ver no GitHub</a>
+        </dd>
+      </div>
+    }
+  </dl>
+</section>

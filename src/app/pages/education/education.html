@@ -1,0 +1,16 @@
+<section class="page">
+  <h1>Formação</h1>
+  <p class="lead">Formação acadêmica e cursos relevantes.</p>
+  <ul class="list">
+    @for (edu of cv.content.education; track edu.institution + edu.period) {
+      <li class="card">
+        <p class="period">{{ edu.period }}</p>
+        <h2>{{ edu.degree }}</h2>
+        <p class="inst">{{ edu.institution }}</p>
+        @if (edu.details) {
+          <p class="details">{{ edu.details }}</p>
+        }
+      </li>
+    }
+  </ul>
+</section>

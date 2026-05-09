@@ -1,0 +1,23 @@
+<section class="page">
+  <h1>Experiência</h1>
+  <p class="lead">Trajetória profissional e principais contribuições.</p>
+  <ul class="timeline">
+    @for (job of cv.content.experience; track job.company + job.period) {
+      <li class="item">
+        <div class="period">{{ job.period }}</div>
+        <div class="body">
+          <h2>{{ job.role }}</h2>
+          <p class="company">{{ job.company }}</p>
+          <p class="desc">{{ job.description }}</p>
+          @if (job.highlights?.length) {
+            <ul class="highlights">
+              @for (h of job.highlights; track h) {
+                <li>{{ h }}</li>
+              }
+            </ul>
+          }
+        </div>
+      </li>
+    }
+  </ul>
+</section>
