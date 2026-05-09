@@ -1,6 +1,7 @@
 /**
- * Conteúdo único do currículo e da home (herói, CTAs, métricas).
- * A home consome via CvDataService — sem serviço separado no MVP; ver docs/CHECKLIST-HOME.md (Fase 2).
+ * Conteúdo do currículo e da home — integrado para demonstração.
+ * Antes de publicar: ajuste nome, localização, e-mail, telefone e links sociais no objeto `profile`.
+ * A home consome via CvDataService — ver docs/CHECKLIST-HOME.md (Fase 2).
  */
 import { appPath } from '../constants/internal-routes';
 import { CvContent } from '../models/cv.types';
@@ -16,43 +17,43 @@ export const CV_DATA: CvContent = {
     { value: '1', label: 'Formação superior completa' },
   ],
   profile: {
-    name: 'Seu Nome',
+    name: 'Kelly',
     headline: 'Desenvolvimento full stack · Angular e Node.js',
     summary:
-      'Atuo no desenvolvimento de interfaces web e de serviços em Node.js, com foco em código legível, testes e segurança em APIs. Valorizo trabalho em equipe, revisão de código e documentação que facilite a manutenção.',
-    location: 'Cidade, país',
-    email: 'seu.email@exemplo.com',
-    phone: '+55 (00) 00000-0000',
-    linkedin: 'https://www.linkedin.com/in/seu-perfil',
-    github: 'https://github.com/seu-usuario',
+      'Desenvolvedora focada em aplicações web com Angular e APIs em Node.js. Priorizo código testável, segurança em endpoints REST e documentação que ajude o time a evoluir o produto com confiança.',
+    location: 'Brasil',
+    email: 'kelly@example.com',
+    phone: '+55 (11) 99999-9999',
+    linkedin: 'https://www.linkedin.com/in/kelly-dev',
+    github: 'https://github.com/kelly-dev',
   },
   experience: [
     {
-      company: 'Empresa Exemplo',
-      role: 'Desenvolvedor full stack',
+      company: 'Nova Soft Ltda.',
+      role: 'Desenvolvedora full stack',
       period: '2023 — presente',
       description:
-        'Construção e evolução de aplicações web com Angular e APIs em Node.js, em conjunto com o time de produto.',
+        'Evolução de produtos SaaS em Angular e Node.js, participação em refinamentos e deploy contínuo.',
       highlights: [
-        'Entrega de funcionalidades com testes automatizados e revisão entre pares',
-        'Integração com APIs REST e cuidados com autenticação e validação de dados',
+        'Cobertura de testes em funcionalidades críticas e revisão de código em par',
+        'Integração com APIs REST, autenticação JWT e validação consistente de payloads',
       ],
     },
     {
-      company: 'Outra empresa',
-      role: 'Desenvolvedor front-end',
+      company: 'Agência Horizonte Digital',
+      role: 'Desenvolvedora front-end',
       period: '2020 — 2023',
       description:
-        'Manutenção de sistemas existentes, criação de novos módulos e melhoria contínua da experiência do usuário.',
+        'Sites institucionais e painéis administrativos; manutenção de legado e novos módulos em Angular.',
     },
   ],
   education: [
     {
-      institution: 'Universidade Exemplo',
+      institution: 'Universidade Federal do Estado (exemplo)',
       degree: 'Bacharelado em Ciência da Computação',
       period: '2016 — 2020',
       details:
-        'Trabalho de conclusão de curso ou focos acadêmicos relevantes podem ser descritos aqui.',
+        'Ênfase em engenharia de software e sistemas distribuídos; TCC sobre APIs e qualidade de serviços.',
     },
   ],
   skills: [
@@ -68,14 +69,14 @@ export const CV_DATA: CvContent = {
     {
       name: 'Site de currículo',
       description:
-        'Aplicação de página única em Angular, com formulário de contato integrado a uma API em Node.js.',
+        'SPA em Angular com API Express para formulário de contato, CORS e envio por e-mail opcional.',
       tech: ['Angular', 'Express'],
-      link: 'https://github.com',
+      link: 'https://github.com/kelly-dev/curriculum-site',
     },
     {
-      name: 'API de exemplo',
+      name: 'API de contato',
       description:
-        'Serviço REST com validação de entrada, proteção básica e limitação de taxa de requisições.',
+        'Serviço REST com helmet, rate limit no POST e validação de campos antes do envio.',
       tech: ['Node.js', 'Express'],
     },
   ],
