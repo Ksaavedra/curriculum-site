@@ -19,6 +19,10 @@ body {
   line-height: 1.5;
   color: var(--cv-text);
   background: var(--cv-bg);
+  overflow-x: clip;
+  overflow-wrap: anywhere;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
 }
 
 :root {

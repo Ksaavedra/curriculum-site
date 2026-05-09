@@ -1,5 +1,6 @@
 .page {
   max-width: 48rem;
+  min-width: 0;
 }
 
 .timeline {
@@ -29,7 +30,14 @@
 
 .body {
   border-left: 2px solid var(--cv-border);
-  padding-left: 1rem;
+  padding-left: min(1rem, 4vw);
+  min-width: 0;
+}
+
+@media (max-width: 600px) {
+  .body {
+    padding-left: 0.75rem;
+  }
 }
 
 .body h2 {
