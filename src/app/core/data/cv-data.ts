@@ -1,3 +1,7 @@
+/**
+ * Conteúdo único do currículo e da home (herói, CTAs, métricas).
+ * A home consome via CvDataService — sem serviço separado no MVP; ver docs/CHECKLIST-HOME.md (Fase 2).
+ */
 import { appPath } from '../constants/internal-routes';
 import { CvContent } from '../models/cv.types';
 
