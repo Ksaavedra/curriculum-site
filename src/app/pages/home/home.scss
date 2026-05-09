@@ -6,8 +6,43 @@
 }
 
 .hero {
-  max-width: 42rem;
+  max-width: 52rem;
   min-width: 0;
+}
+
+.hero-layout {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  align-items: flex-start;
+}
+
+@media (min-width: 640px) {
+  .hero-layout {
+    flex-direction: row;
+    align-items: center;
+    gap: clamp(1.25rem, 4vw, 2rem);
+  }
+}
+
+.hero-photo {
+  flex-shrink: 0;
+
+  img {
+    display: block;
+    width: min(10rem, 72vw);
+    height: auto;
+    aspect-ratio: 1;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 2px solid var(--cv-border);
+    background: var(--cv-surface-2);
+  }
+}
+
+.hero-copy {
+  min-width: 0;
+  flex: 1;
 }
 
 .highlights {

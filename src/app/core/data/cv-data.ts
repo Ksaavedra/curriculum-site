@@ -18,6 +18,10 @@ export const CV_DATA: CvContent = {
   ],
   profile: {
     name: 'Kelly',
+    photo: {
+      src: '/profile-photo.svg',
+      alt: 'Kelly, desenvolvedora de software especializada em Angular e Node.js',
+    },
     headline: 'Desenvolvimento full stack · Angular e Node.js',
     summary:
       'Desenvolvedora focada em aplicações web com Angular e APIs em Node.js. Priorizo código testável, segurança em endpoints REST e documentação que ajude o time a evoluir o produto com confiança.',

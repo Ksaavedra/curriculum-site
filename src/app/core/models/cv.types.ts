@@ -1,3 +1,9 @@
+/** Imagem opcional no herói; `alt` deve descrever a pessoa (acessibilidade). */
+export interface ProfilePhoto {
+  src: string;
+  alt: string;
+}
+
 export interface Profile {
   name: string;
   headline: string;
@@ -7,6 +13,7 @@ export interface Profile {
   phone: string;
   linkedin?: string;
   github?: string;
+  photo?: ProfilePhoto;
 }
 
 export interface ExperienceItem {
