@@ -1,11 +1,11 @@
 <div class="home">
   <section class="hero" aria-labelledby="home-title">
     <p class="eyebrow">Olá, sou</p>
-    <h1 id="home-title">{{ profile.name }}</h1>
-    <p class="headline">{{ profile.headline }}</p>
-    <p class="summary">{{ profile.summary }}</p>
+    <h1 id="home-title">{{ home.profile.name }}</h1>
+    <p class="headline">{{ home.profile.headline }}</p>
+    <p class="summary">{{ home.profile.summary }}</p>
     <div class="actions">
-      @for (cta of primaryCtas; track cta.route) {
+      @for (cta of home.primaryCtas; track cta.route) {
         <a
           [routerLink]="cta.route"
           class="btn"
@@ -17,9 +17,9 @@
     </div>
   </section>
 
-  @if (highlights.length) {
+  @if (home.highlights.length) {
     <section class="highlights" aria-label="Destaques">
-      @for (h of highlights; track h.label) {
+      @for (h of home.highlights; track h.label) {
         <article class="metric">
           <p class="value">{{ h.value }}</p>
           <p class="label">{{ h.label }}</p>

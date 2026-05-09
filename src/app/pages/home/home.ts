@@ -9,9 +9,8 @@ import { CvDataService } from '../../core/services/cv-data.service';
   styleUrl: './home.scss',
 })
 export class HomeComponent {
-  protected readonly cv = inject(CvDataService);
+  private readonly cv = inject(CvDataService);
 
-  protected readonly profile = this.cv.content.profile;
-  protected readonly primaryCtas = this.cv.content.primaryCtas;
-  protected readonly highlights = this.cv.content.highlights ?? [];
+  /** Modelo explícito da home (`HomeSection` ↔ blocos herói, CTAs, destaques). */
+  protected readonly home = this.cv.home;
 }

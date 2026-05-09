@@ -45,6 +45,32 @@ export interface HomePrimaryCta {
   variant: 'primary' | 'ghost';
 }
 
+/**
+ * Contrato dos dados usados só pela página inicial (`/`).
+ *
+ * | Bloco na UI | Campos |
+ * |-------------|--------|
+ * | Herói (nome, headline, resumo) | `profile` |
+ * | Botões do herói | `primaryCtas` (tupla de 2) |
+ * | Cards de métricas | `highlights` (vazio oculta a seção) |
+ *
+ * Origem: subconjunto de `CvContent` em [`cv-data.ts`](../data/cv-data.ts).
+ */
+export interface HomeSection {
+  profile: Profile;
+  primaryCtas: [HomePrimaryCta, HomePrimaryCta];
+  highlights: HighlightMetric[];
+}
+
+/** Monta o objeto tipado da home a partir do currículo completo. */
+export function homeSectionFromCv(c: CvContent): HomeSection {
+  return {
+    profile: c.profile,
+    primaryCtas: c.primaryCtas,
+    highlights: c.highlights ?? [],
+  };
+}
+
 export interface CvContent {
   profile: Profile;
   /** Dois CTAs fixos do herói: tipicamente contato + trajetória ou projetos. */
