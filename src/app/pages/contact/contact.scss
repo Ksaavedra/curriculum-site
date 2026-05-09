@@ -61,7 +61,7 @@ textarea {
   font-size: 0.8rem;
 
   &.err {
-    color: #b71c1c;
+    color: var(--cv-danger-text);
   }
 }
 

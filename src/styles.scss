@@ -26,14 +26,19 @@ body {
 }
 
 :root {
+  /*
+   * Contraste (WCAG 2.1 nível AA, texto normal ~16px):
+   * --cv-text / --cv-muted / --cv-accent sobre --cv-bg ou --cv-surface ≥ 4.5:1 (calculado com ferramentas online).
+   */
   --cv-bg: #f6f7f9;
   --cv-surface: #ffffff;
-  --cv-surface-2: #f0f2f5;
-  --cv-text: #1a1d23;
-  --cv-muted: #5c6470;
-  --cv-border: #d8dde4;
-  --cv-accent: #1e5a8a;
+  --cv-surface-2: #eef1f5;
+  --cv-text: #141820;
+  --cv-muted: #3d4654;
+  --cv-border: #bcc6d4;
+  --cv-accent: #14496f;
   --cv-accent-contrast: #ffffff;
+  --cv-danger-text: #8f1414;
 
   /* Hierarquia: título de página > subtítulo/lead > corpo */
   --cv-type-page-title: clamp(1.65rem, 3vw, 1.95rem);
