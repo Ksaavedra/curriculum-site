@@ -5,8 +5,15 @@
     <p class="headline">{{ profile.headline }}</p>
     <p class="summary">{{ profile.summary }}</p>
     <div class="actions">
-      <a routerLink="/contato" class="btn primary">Entrar em contato</a>
-      <a routerLink="/experiencia" class="btn ghost">Ver experiência</a>
+      @for (cta of primaryCtas; track cta.route) {
+        <a
+          [routerLink]="cta.route"
+          class="btn"
+          [class.primary]="cta.variant === 'primary'"
+          [class.ghost]="cta.variant === 'ghost'"
+          >{{ cta.label }}</a
+        >
+      }
     </div>
   </section>
 

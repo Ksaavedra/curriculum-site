@@ -37,8 +37,18 @@ export interface HighlightMetric {
   label: string;
 }
 
+/** CTA principal do herói da home: sempre um par (ação principal + ação secundária). */
+export interface HomePrimaryCta {
+  label: string;
+  /** Rota interna do app (ex.: `/contato`). */
+  route: string;
+  variant: 'primary' | 'ghost';
+}
+
 export interface CvContent {
   profile: Profile;
+  /** Dois CTAs fixos do herói: tipicamente contato + trajetória ou projetos. */
+  primaryCtas: [HomePrimaryCta, HomePrimaryCta];
   /** Destaques numéricos da home; opcional para páginas que não precisem de métricas. */
   highlights?: HighlightMetric[];
   experience: ExperienceItem[];

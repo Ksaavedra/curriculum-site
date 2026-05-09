@@ -12,5 +12,6 @@ export class HomeComponent {
   protected readonly cv = inject(CvDataService);
 
   protected readonly profile = this.cv.content.profile;
+  protected readonly primaryCtas = this.cv.content.primaryCtas;
   protected readonly highlights = this.cv.content.highlights ?? [];
 }

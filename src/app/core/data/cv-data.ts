@@ -1,6 +1,10 @@
 import { CvContent } from '../models/cv.types';
 
 export const CV_DATA: CvContent = {
+  primaryCtas: [
+    { label: 'Entrar em contato', route: '/contato', variant: 'primary' },
+    { label: 'Ver experiência', route: '/experiencia', variant: 'ghost' },
+  ],
   highlights: [
     { value: '5+', label: 'Anos em desenvolvimento web' },
     { value: '2', label: 'Projetos em destaque neste portfólio' },
