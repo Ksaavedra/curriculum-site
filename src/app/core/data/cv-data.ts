@@ -1,6 +1,11 @@
 import { CvContent } from '../models/cv.types';
 
 export const CV_DATA: CvContent = {
+  highlights: [
+    { value: '5+', label: 'Anos em desenvolvimento web' },
+    { value: '2', label: 'Projetos em destaque neste portfólio' },
+    { value: '1', label: 'Formação superior completa' },
+  ],
   profile: {
     name: 'Seu Nome',
     headline: 'Desenvolvimento full stack · Angular e Node.js',
