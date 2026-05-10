@@ -46,9 +46,9 @@ textarea {
   background: var(--cv-bg);
   color: var(--cv-text);
 
-  &:focus {
-    outline: 2px solid color-mix(in oklab, var(--cv-accent) 45%, transparent);
-    outline-offset: 1px;
+  &:focus-visible {
+    outline: 2px solid var(--cv-accent);
+    outline-offset: 2px;
   }
 }
 
@@ -83,5 +83,11 @@ textarea {
 
   &:not(:disabled):hover {
     filter: brightness(1.05);
+  }
+
+  &:focus-visible:not(:disabled) {
+    outline: 2px solid var(--cv-accent-contrast);
+    outline-offset: 2px;
+    box-shadow: 0 0 0 2px var(--cv-accent);
   }
 }
