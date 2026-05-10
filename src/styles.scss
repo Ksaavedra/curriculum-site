@@ -71,6 +71,11 @@ body {
   --cv-shadow-sm: 0 1px 2px rgb(20 24 31 / 7%);
   --cv-shadow-float: 0 2px 10px rgb(20 24 31 / 8%);
 
+  /* Herói (home): opacidade dos “blobs” no mesh — modo claro ligeiramente mais visível */
+  --cv-hero-mesh-a: 7%;
+  --cv-hero-mesh-b: 5%;
+  --cv-hero-mesh-c: 10%;
+
   /* Hierarquia: título de página > subtítulo/lead > corpo */
   --cv-type-page-title: clamp(1.65rem, 3vw, 1.95rem);
   --cv-type-hero-title: clamp(2rem, 5vw, 2.85rem);
@@ -95,6 +100,10 @@ body {
 
   --cv-shadow-sm: 0 1px 2px rgb(0 0 0 / 45%);
   --cv-shadow-float: 0 2px 14px rgb(0 0 0 / 55%);
+
+  --cv-hero-mesh-a: 4%;
+  --cv-hero-mesh-b: 3%;
+  --cv-hero-mesh-c: 6%;
 }
 
 /* Páginas internas: h1 (nível 1) > p.lead (nível 2) > conteúdo (nível 3) */
