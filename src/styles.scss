@@ -1,3 +1,23 @@
+/*
+ * Bootstrap 5 (parcial): grelha, contentores, utilitários e variáveis CSS --bs-*.
+ * Sem reboot, tipografia nem componentes — evita choque com tokens `--cv-*` e o corpo já definido abaixo.
+ * Ordem conforme https://getbootstrap.com/docs/5.3/customize/sass/#importing
+ */
+@import 'bootstrap/scss/functions';
+
+/* Aproximar utilitários / variáveis `--bs-primary-*` à paleta do site (modo claro). */
+$primary: #14496f;
+
+@import 'bootstrap/scss/variables';
+@import 'bootstrap/scss/variables-dark';
+@import 'bootstrap/scss/maps';
+@import 'bootstrap/scss/mixins';
+@import 'bootstrap/scss/utilities';
+@import 'bootstrap/scss/root';
+@import 'bootstrap/scss/containers';
+@import 'bootstrap/scss/grid';
+@import 'bootstrap/scss/utilities/api';
+
 *,
 *::before,
 *::after {
