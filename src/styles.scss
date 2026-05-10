@@ -164,3 +164,9 @@ main button:focus-visible:not(:disabled) {
   outline-offset: 2px;
   border-radius: var(--cv-radius-sm);
 }
+
+/*
+ * ng-bootstrap: não repetir `bootstrap/scss/bootstrap` aqui — já há import parcial no topo
+ * (CHECKLIST-HOME: reduzir CSS). Ao usar componentes Ngb*, importar os SCSS necessários
+ * ou expandir o bloco parcial se faltar estilo.
+ */
