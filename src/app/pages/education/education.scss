@@ -15,8 +15,14 @@
 .card {
   padding: var(--cv-space-5);
   border: 1px solid var(--cv-border);
-  border-radius: 10px;
+  border-radius: var(--cv-radius-md);
   background: var(--cv-surface-2);
+  box-shadow: var(--cv-shadow-sm);
+  transition: box-shadow 0.2s ease;
+
+  &:hover {
+    box-shadow: var(--cv-shadow-float);
+  }
 }
 
 .period {

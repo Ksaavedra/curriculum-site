@@ -5,7 +5,7 @@
 
 .banner {
   padding: var(--cv-space-3);
-  border-radius: 8px;
+  border-radius: var(--cv-radius-md);
   margin: 0 0 var(--cv-space-4);
   font-size: 0.95rem;
 
@@ -41,7 +41,7 @@ input,
 textarea {
   font: inherit;
   padding: var(--cv-space-2) var(--cv-space-3);
-  border-radius: 8px;
+  border-radius: var(--cv-radius-md);
   border: 1px solid var(--cv-border);
   background: var(--cv-bg);
   color: var(--cv-text);
@@ -68,7 +68,7 @@ textarea {
 .btn {
   align-self: flex-start;
   padding: var(--cv-space-3) var(--cv-space-5);
-  border-radius: 8px;
+  border-radius: var(--cv-radius-md);
   border: none;
   font: inherit;
   font-weight: 500;
