@@ -10,11 +10,7 @@ html {
 
 body {
   margin: 0;
-  font-family:
-    'Segoe UI',
-    system-ui,
-    -apple-system,
-    sans-serif;
+  font-family: var(--cv-font-sans);
   font-size: 16px;
   line-height: 1.5;
   color: var(--cv-text);
@@ -40,6 +36,10 @@ body {
   --cv-accent-contrast: #ffffff;
   --cv-danger-text: #8f1414;
 
+  /* Tipografia: Inter (UI/corpo) + Source Serif 4 (títulos principais) — Google Fonts em index.html */
+  --cv-font-sans: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --cv-font-serif: 'Source Serif 4', 'Georgia', 'Times New Roman', serif;
+
   /* Hierarquia: título de página > subtítulo/lead > corpo */
   --cv-type-page-title: clamp(1.65rem, 3vw, 1.95rem);
   --cv-type-hero-title: clamp(2rem, 5vw, 2.85rem);
@@ -53,6 +53,7 @@ body {
 /* Páginas internas: h1 (nível 1) > p.lead (nível 2) > conteúdo (nível 3) */
 section.page > h1 {
   margin: 0 0 0.35rem;
+  font-family: var(--cv-font-serif);
   font-size: var(--cv-type-page-title);
   font-weight: 600;
   letter-spacing: -0.02em;
