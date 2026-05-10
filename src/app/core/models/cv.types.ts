@@ -1,3 +1,5 @@
+import type { CvIconName } from '../icons/cv-icon.types';
+
 /** Imagem opcional no herói; `alt` deve descrever a pessoa (acessibilidade). */
 export interface ProfilePhoto {
   src: string;
@@ -50,6 +52,8 @@ export interface HomePrimaryCta {
   /** Rota interna do app (ex.: `/contato`). */
   route: string;
   variant: 'primary' | 'ghost';
+  /** Ícone opcional à esquerda do rótulo (SVG inline, mesmo estilo que o header). */
+  icon?: CvIconName;
 }
 
 /**

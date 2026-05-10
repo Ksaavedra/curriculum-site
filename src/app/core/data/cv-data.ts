@@ -10,8 +10,8 @@ export const CV_DATA: CvContent = {
   heroEyebrow: 'Olá, sou',
   highlightsSectionAriaLabel: 'Destaques',
   primaryCtas: [
-    { label: 'Entrar em contato', route: appPath('contato'), variant: 'primary' },
-    { label: 'Ver experiência', route: appPath('experiencia'), variant: 'ghost' },
+    { label: 'Entrar em contato', route: appPath('contato'), variant: 'primary', icon: 'mail' },
+    { label: 'Ver experiência', route: appPath('experiencia'), variant: 'ghost', icon: 'briefcase' },
   ],
   highlights: [
     { value: '5+', label: 'Anos em desenvolvimento web' },

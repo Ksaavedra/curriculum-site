@@ -144,6 +144,7 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  gap: var(--cv-space-2);
   min-height: 2.75rem;
   padding: var(--cv-space-3) var(--cv-space-5);
   border-radius: var(--cv-radius-md);

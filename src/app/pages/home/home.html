@@ -25,8 +25,12 @@
               class="btn"
               [class.primary]="cta.variant === 'primary'"
               [class.ghost]="cta.variant === 'ghost'"
-              >{{ cta.label }}</a
             >
+              @if (cta.icon) {
+                <app-cv-icon [name]="cta.icon" />
+              }
+              {{ cta.label }}
+            </a>
           }
         </div>
       </div>

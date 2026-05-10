@@ -12,7 +12,10 @@
           }
         </ul>
         @if (p.link) {
-          <a class="link" [href]="p.link" target="_blank" rel="noopener noreferrer">Ver projeto</a>
+          <a class="link" [href]="p.link" target="_blank" rel="noopener noreferrer">
+            <app-cv-icon name="external" />
+            Ver projeto
+          </a>
         }
       </article>
     }

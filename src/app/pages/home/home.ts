@@ -1,10 +1,11 @@
 import { Component, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { CvDataService } from '../../core/services/cv-data.service';
+import { CvIconComponent } from '../../shared/cv-icon/cv-icon';
 
 @Component({
   selector: 'app-home',
-  imports: [RouterLink],
+  imports: [RouterLink, CvIconComponent],
   templateUrl: './home.html',
   styleUrl: './home.scss',
 })
