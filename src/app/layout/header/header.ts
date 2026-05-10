@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import { appPath } from '../../core/constants/internal-routes';
+import { ThemeService } from '../../core/services/theme.service';
 
 @Component({
   selector: 'app-header',
@@ -9,6 +10,8 @@ import { appPath } from '../../core/constants/internal-routes';
   styleUrl: './header.scss',
 })
 export class HeaderComponent {
+  protected readonly theme = inject(ThemeService);
+
   readonly links = [
     { path: appPath('home'), label: 'Início', exact: true },
     { path: appPath('sobre'), label: 'Sobre', exact: false },

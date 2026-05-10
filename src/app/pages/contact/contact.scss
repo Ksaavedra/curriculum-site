@@ -15,8 +15,8 @@
   }
 
   &.err {
-    background: color-mix(in oklab, #c62828 12%, transparent);
-    border: 1px solid color-mix(in oklab, #c62828 35%, transparent);
+    background: color-mix(in oklab, var(--cv-danger-text) 14%, transparent);
+    border: 1px solid color-mix(in oklab, var(--cv-danger-text) 38%, transparent);
   }
 }
 

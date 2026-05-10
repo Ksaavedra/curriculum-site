@@ -1,13 +1,23 @@
 <header class="header">
   <a routerLink="/" class="brand">Currículo</a>
-  <nav class="nav" aria-label="Principal">
-    @for (link of links; track link.path) {
-      <a
-        [routerLink]="link.path"
-        routerLinkActive="active"
-        [routerLinkActiveOptions]="{ exact: link.exact }"
-        >{{ link.label }}</a
-      >
-    }
-  </nav>
+  <div class="header-end">
+    <nav class="nav" aria-label="Principal">
+      @for (link of links; track link.path) {
+        <a
+          [routerLink]="link.path"
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{ exact: link.exact }"
+          >{{ link.label }}</a
+        >
+      }
+    </nav>
+    <button
+      type="button"
+      class="theme-toggle"
+      (click)="theme.cycle()"
+      [attr.aria-label]="theme.ariaLabel()"
+    >
+      {{ theme.buttonLabel() }}
+    </button>
+  </div>
 </header>

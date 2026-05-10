@@ -50,6 +50,19 @@ body {
   --cv-type-lh-body: 1.65;
 }
 
+/* Modo escuro: `data-theme="dark"` em `<html>` (ThemeService + script em index.html). */
+:root[data-theme='dark'] {
+  --cv-bg: #12151a;
+  --cv-surface: #1a1f26;
+  --cv-surface-2: #232b35;
+  --cv-text: #e8eaed;
+  --cv-muted: #9aa5b1;
+  --cv-border: #3d4a5c;
+  --cv-accent: #7eb8e0;
+  --cv-accent-contrast: #0d1117;
+  --cv-danger-text: #ff9e9e;
+}
+
 /* Páginas internas: h1 (nível 1) > p.lead (nível 2) > conteúdo (nível 3) */
 section.page > h1 {
   margin: 0 0 0.35rem;
