@@ -57,9 +57,10 @@ export interface HomePrimaryCta {
  *
  * | Bloco na UI | Campos |
  * |-------------|--------|
- * | Herói (nome, headline, resumo) | `profile` |
+ * | Linha «eyebrow» acima do nome | `eyebrow` |
+ * | Herói (nome, headline, resumo, foto) | `profile` |
  * | Botões do herói | `primaryCtas` (tupla de 2) |
- * | Cards de métricas | `highlights` (vazio oculta a seção) |
+ * | Cards de métricas | `highlights` (vazio oculta a seção); rótulo a11y: `highlightsSectionAriaLabel` |
  *
  * Origem: subconjunto de `CvContent` em [`cv-data.ts`](../data/cv-data.ts).
  */
@@ -67,6 +68,10 @@ export interface HomeSection {
   profile: Profile;
   primaryCtas: [HomePrimaryCta, HomePrimaryCta];
   highlights: HighlightMetric[];
+  /** Linha curta acima do nome (ex.: «Olá, sou»). */
+  eyebrow: string;
+  /** Rótulo acessível da seção de métricas (`aria-label`). */
+  highlightsSectionAriaLabel: string;
 }
 
 /** Monta o objeto tipado da home a partir do currículo completo. */
@@ -75,6 +80,8 @@ export function homeSectionFromCv(c: CvContent): HomeSection {
     profile: c.profile,
     primaryCtas: c.primaryCtas,
     highlights: c.highlights ?? [],
+    eyebrow: c.heroEyebrow ?? 'Olá, sou',
+    highlightsSectionAriaLabel: c.highlightsSectionAriaLabel ?? 'Destaques',
   };
 }
 
@@ -82,6 +89,10 @@ export interface CvContent {
   profile: Profile;
   /** Dois CTAs fixos do herói: tipicamente contato + trajetória ou projetos. */
   primaryCtas: [HomePrimaryCta, HomePrimaryCta];
+  /** Texto opcional acima do nome no herói; padrão «Olá, sou». */
+  heroEyebrow?: string;
+  /** `aria-label` da seção de métricas; padrão «Destaques». */
+  highlightsSectionAriaLabel?: string;
   /** Destaques numéricos da home; opcional para páginas que não precisem de métricas. */
   highlights?: HighlightMetric[];
   experience: ExperienceItem[];

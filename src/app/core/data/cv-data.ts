@@ -7,6 +7,8 @@ import { appPath } from '../constants/internal-routes';
 import { CvContent } from '../models/cv.types';
 
 export const CV_DATA: CvContent = {
+  heroEyebrow: 'Olá, sou',
+  highlightsSectionAriaLabel: 'Destaques',
   primaryCtas: [
     { label: 'Entrar em contato', route: appPath('contato'), variant: 'primary' },
     { label: 'Ver experiência', route: appPath('experiencia'), variant: 'ghost' },
@@ -60,15 +62,7 @@ export const CV_DATA: CvContent = {
         'Ênfase em engenharia de software e sistemas distribuídos; TCC sobre APIs e qualidade de serviços.',
     },
   ],
-  skills: [
-    'Angular',
-    'TypeScript',
-    'Node.js',
-    'Express',
-    'HTML e SCSS',
-    'APIs REST',
-    'Git',
-  ],
+  skills: ['Angular', 'TypeScript', 'Node.js', 'Express', 'HTML e SCSS', 'APIs REST', 'Git'],
   projects: [
     {
       name: 'Site de currículo',
