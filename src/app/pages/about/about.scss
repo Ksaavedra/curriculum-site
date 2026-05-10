@@ -4,12 +4,12 @@
 }
 
 .page > p.lead {
-  margin-bottom: 2rem;
+  margin-bottom: var(--cv-space-8);
 }
 
 .meta {
   display: grid;
-  gap: 1rem 2rem;
+  gap: var(--cv-space-4) var(--cv-space-8);
   grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
   margin: 0;
 
@@ -18,7 +18,7 @@
     text-transform: uppercase;
     letter-spacing: 0.06em;
     color: var(--cv-muted);
-    margin: 0 0 0.25rem;
+    margin: 0 0 var(--cv-space-1);
   }
 
   dd {

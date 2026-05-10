@@ -4,9 +4,9 @@
 }
 
 .banner {
-  padding: 0.65rem 0.85rem;
+  padding: var(--cv-space-3);
   border-radius: 8px;
-  margin: 0 0 1rem;
+  margin: 0 0 var(--cv-space-4);
   font-size: 0.95rem;
 
   &.ok {
@@ -23,13 +23,13 @@
 form {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: var(--cv-space-4);
 }
 
 .field {
   display: flex;
   flex-direction: column;
-  gap: 0.35rem;
+  gap: var(--cv-space-2);
 }
 
 label {
@@ -40,7 +40,7 @@ label {
 input,
 textarea {
   font: inherit;
-  padding: 0.55rem 0.65rem;
+  padding: var(--cv-space-2) var(--cv-space-3);
   border-radius: 8px;
   border: 1px solid var(--cv-border);
   background: var(--cv-bg);
@@ -67,7 +67,7 @@ textarea {
 
 .btn {
   align-self: flex-start;
-  padding: 0.65rem 1.25rem;
+  padding: var(--cv-space-3) var(--cv-space-5);
   border-radius: 8px;
   border: none;
   font: inherit;

@@ -15,21 +15,22 @@
   min-width: 0;
   max-width: 72rem;
   margin: 0 auto;
-  padding: 1.25rem clamp(0.75rem, 4vw, 1.5rem) 2rem;
-  padding-left: max(clamp(0.75rem, 4vw, 1.5rem), env(safe-area-inset-left, 0px));
-  padding-right: max(clamp(0.75rem, 4vw, 1.5rem), env(safe-area-inset-right, 0px));
+  padding-top: var(--cv-space-5);
+  padding-bottom: var(--cv-space-8);
+  padding-left: max(clamp(var(--cv-space-3), 4vw, var(--cv-space-6)), env(safe-area-inset-left, 0px));
+  padding-right: max(clamp(var(--cv-space-3), 4vw, var(--cv-space-6)), env(safe-area-inset-right, 0px));
 }
 
 @media (min-width: 640px) {
   .main {
-    padding-top: 2rem;
-    padding-bottom: 3rem;
+    padding-top: var(--cv-space-8);
+    padding-bottom: var(--cv-space-12);
   }
 }
 
 .footer {
-  padding: 1rem clamp(0.75rem, 4vw, 1.5rem);
-  padding-bottom: max(1rem, env(safe-area-inset-bottom, 0px));
+  padding: var(--cv-space-4) clamp(var(--cv-space-3), 4vw, var(--cv-space-6));
+  padding-bottom: max(var(--cv-space-4), env(safe-area-inset-bottom, 0px));
   border-top: 1px solid var(--cv-border);
   color: var(--cv-muted);
   font-size: 0.85rem;
