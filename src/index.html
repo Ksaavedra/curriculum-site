@@ -7,11 +7,9 @@
         try {
           var k = 'cv-theme-preference';
           var v = localStorage.getItem(k);
-          var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
           var effective = 'light';
           if (v === 'dark') effective = 'dark';
           else if (v === 'light') effective = 'light';
-          else effective = prefersDark ? 'dark' : 'light';
           document.documentElement.setAttribute('data-theme', effective);
         } catch (e) {}
       })();

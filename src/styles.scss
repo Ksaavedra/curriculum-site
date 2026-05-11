@@ -82,6 +82,7 @@ body {
    * | Hover           | `--cv-accent-hover`, `--cv-link-hover`, `--cv-surface-hover` |
    * ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
    * Contraste (WCAG 2.1 AA ~16px): texto / muted / accent sobre bg ou surface — validar com ferramenta ao mudar hex.
+   * `--cv-muted` (claro) escurecido ligeiramente vs #3d4654 para legendas/caption sobre `--cv-bg`.
    */
   --cv-accent: #14496f;
   --cv-accent-contrast: #ffffff;
@@ -92,7 +93,7 @@ body {
   --cv-surface: #ffffff;
   --cv-surface-2: #eef1f5;
   --cv-text: #141820;
-  --cv-muted: #3d4654;
+  --cv-muted: #2c3440;
   --cv-border: #bcc6d4;
 
   --cv-accent-hover: color-mix(in oklab, var(--cv-accent) 78%, #080a0d);
@@ -123,6 +124,14 @@ body {
   --cv-space-16: 4rem;
 
   /*
+   * Ritmo vertical entre secções (`.cv-section` irmãs) e respiro interno — Fase 2, CHECKLIST-LAYOUT-BONITO.
+   * Valores moderados: evita vão grande entre título/lead e conteúdo (ex.: Formação).
+   */
+  --cv-section-y: clamp(var(--cv-space-6), 3vw, var(--cv-space-10));
+  --cv-section-inner-gap: var(--cv-space-3);
+  --cv-page-row-gap: var(--cv-space-5);
+
+  /*
    * Raios: dois níveis + pill (tags). Evita misturar 4px, 6px, 8px, 10px ao calhas.
    */
   --cv-radius-sm: 6px;
@@ -135,6 +144,16 @@ body {
    */
   --cv-shadow-sm: 0 1px 2px rgb(20 24 31 / 7%);
   --cv-shadow-float: 0 2px 10px rgb(20 24 31 / 8%);
+
+  /*
+   * Cartões (Fase 3 — CHECKLIST-LAYOUT-BONITO): fundo, bordo suave, sombra, padding e gap interno.
+   */
+  --cv-card-bg: var(--cv-surface);
+  --cv-card-border: color-mix(in oklab, var(--cv-border) 58%, transparent);
+  --cv-card-padding: var(--cv-space-6);
+  --cv-card-inner-gap: var(--cv-space-4);
+  --cv-card-shadow: var(--cv-shadow-sm);
+  --cv-card-shadow-hover: var(--cv-shadow-float);
 
   /* Herói (home): opacidade dos “blobs” no mesh — modo claro ligeiramente mais visível */
   --cv-hero-mesh-a: 7%;
@@ -152,6 +171,20 @@ body {
 
   /* Hover/focus em links e botões (faixa ~150–250 ms; ver CHECKLIST-HOME) */
   --cv-transition-hover: 0.2s ease;
+  /* Cartões / elevação: curva ligeiramente mais suave que o hover genérico (Fase 8). */
+  --cv-transition-card: 0.24s cubic-bezier(0.33, 1, 0.68, 1);
+  --cv-page-enter-duration: 0.42s;
+
+  /* Alvo mínimo de toque (~44 px a 16px) — botões, Fase 3 CHECKLIST-LAYOUT-BONITO */
+  --cv-touch-target-min: 2.75rem;
+
+  /*
+   * Sidenav Material: `.mat-drawer-container` usa estes tokens (tema M3 claro no `html`).
+   * Sem isto, o fundo do contentor pode ficar claro com `data-theme="dark"` e `--cv-text` claro
+   * — títulos e chips ilegíveis. Os valores seguem sempre os `--cv-*` actuais.
+   */
+  --mat-sidenav-content-background-color: var(--cv-bg);
+  --mat-sidenav-content-text-color: var(--cv-text);
 }
 
 /* Modo escuro: `data-theme="dark"` em `<html>` (ThemeService + script em index.html). */
@@ -160,7 +193,8 @@ body {
   --cv-surface: #1a1f26;
   --cv-surface-2: #232b35;
   --cv-text: #e8eaed;
-  --cv-muted: #9aa5b1;
+  /* Ligeiramente mais claro que #9aa5b1 para texto secundário sobre #12151a (AA ~16px). */
+  --cv-muted: #b3bcc7;
   --cv-border: #3d4a5c;
   --cv-accent: #7eb8e0;
   --cv-accent-contrast: #0d1117;
@@ -179,19 +213,131 @@ body {
   --cv-hero-mesh-c: 6%;
 }
 
-/* Páginas internas: h1 (nível 1) > p.lead (nível 2) > conteúdo (nível 3) — grelha Bootstrap dentro de `.page` */
+/*
+ * Páginas internas: h1 > lead > corpo; alinhamento ao início (LTR) e grelha com respiro vertical estável.
+ */
+.shell section.page {
+  min-width: 0;
+  text-align: start;
+}
+
+.shell section.page > .row {
+  align-items: flex-start;
+  row-gap: var(--cv-page-row-gap);
+}
+
+.shell section.page .cv-section {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: var(--cv-section-inner-gap);
+}
+
+/*
+ * Páginas internas — padrão grid/flex (CHECKLIST-LAYOUT-BONITO Fase 2):
+ * `.cv-page-col` na coluna Bootstrap principal; `--narrow` em formulários curtos.
+ * `.cv-card-grid` na `row` que lista cartões: cada `.col*` vira flex para `card` com `h-100` alinhar alturas.
+ */
+.shell section.page .cv-page-col {
+  min-width: 0;
+}
+
+.shell section.page .cv-meta-grid.row {
+  align-items: start;
+}
+
+.shell section.page .cv-card-grid {
+  align-items: stretch;
+}
+
+.shell section.page .cv-card-grid > [class*='col'] {
+  display: flex;
+  flex-direction: column;
+}
+
+.shell section.page .cv-card-grid .cv-card {
+  flex: 1 1 auto;
+  width: 100%;
+  min-width: 0;
+}
+
+@keyframes cv-page-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(0.4rem);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/*
+ * Entrada suave do conteúdo (router dentro do contentor). Respeita `prefers-reduced-motion`.
+ */
+@media (prefers-reduced-motion: no-preference) {
+  .shell .main > .container {
+    animation: cv-page-fade-in var(--cv-page-enter-duration) cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+}
+
+/*
+ * Superfície de cartão reutilizável (métricas da home, formação, projetos, timeline experiência).
+ * Hover: sombra, bordo, fundo ligeiro e elevação só com rato/precisão (evita “sticky hover” em toque).
+ */
+.shell .cv-card {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: var(--cv-card-inner-gap);
+  padding: var(--cv-card-padding);
+  border-radius: var(--cv-radius-md);
+  background: var(--cv-card-bg);
+  border: 1px solid var(--cv-card-border);
+  box-shadow: var(--cv-card-shadow);
+  min-width: 0;
+  transition:
+    box-shadow var(--cv-transition-card),
+    border-color var(--cv-transition-card),
+    background-color var(--cv-transition-card),
+    transform var(--cv-transition-card);
+}
+
+.shell .cv-card:hover {
+  box-shadow: var(--cv-card-shadow-hover);
+  border-color: color-mix(in oklab, var(--cv-border) 58%, var(--cv-accent));
+  background: color-mix(in oklab, var(--cv-card-bg) 94%, var(--cv-accent));
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .shell .cv-card:hover {
+    transform: translateY(-2px);
+  }
+}
+
+.shell .cv-card.cv-card--timeline {
+  box-shadow: var(--cv-card-shadow), inset 3px 0 0 0 var(--cv-primary);
+}
+
+.shell .cv-card.cv-card--timeline:hover {
+  box-shadow: var(--cv-card-shadow-hover), inset 3px 0 0 0 var(--cv-primary);
+}
+
 section.page h1 {
-  margin: 0 0 var(--cv-space-2);
+  margin: 0;
   font-family: var(--cv-font-serif);
   font-size: var(--cv-type-page-title);
   font-weight: 600;
   letter-spacing: -0.02em;
   line-height: var(--cv-type-lh-tight);
   color: var(--cv-text);
+  text-wrap: balance;
 }
 
 section.page .lead {
-  margin: 0 0 var(--cv-space-6);
+  margin: 0;
   font-size: var(--cv-type-body);
   font-weight: 400;
   line-height: var(--cv-type-lh-body);
@@ -211,6 +357,150 @@ section.page .lead {
   background: var(--cv-surface-2);
   border: 1px solid color-mix(in oklab, var(--cv-border) 55%, transparent);
   border-radius: var(--cv-radius-md);
+  transition:
+    border-color var(--cv-transition-hover),
+    box-shadow var(--cv-transition-hover),
+    background-color var(--cv-transition-hover);
+}
+
+.shell .empty-state:hover {
+  border-color: color-mix(in oklab, var(--cv-border) 40%, var(--cv-accent));
+  box-shadow: var(--cv-shadow-sm);
+  background: color-mix(in oklab, var(--cv-surface-2) 92%, var(--cv-accent));
+}
+
+/*
+ * Secções de conteúdo: margem vertical consistente entre blocos irmãos (`.cv-section` + `.cv-section`).
+ * O primeiro bloco não recebe margem extra por cima; ajuste `--cv-section-y` em `:root` para o ritmo global.
+ */
+.shell .cv-section + .cv-section {
+  margin-top: var(--cv-section-y);
+}
+
+/*
+ * Botões reutilizáveis (Fase 3 — CHECKLIST-LAYOUT-BONITO): base, primário, outline, hover, :focus-visible, toque.
+ * Uso: `<a class="cv-btn cv-btn--primary" routerLink="...">` ou `<button type="button" class="cv-btn cv-btn--outline">`.
+ */
+.shell a.cv-btn,
+.shell button.cv-btn {
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--cv-space-2);
+  min-height: var(--cv-touch-target-min);
+  padding: var(--cv-space-3) var(--cv-space-5);
+  border-radius: var(--cv-radius-md);
+  font-size: 0.95rem;
+  font-weight: 500;
+  font-family: inherit;
+  line-height: 1.25;
+  text-decoration: none;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition:
+    background-color var(--cv-transition-hover),
+    color var(--cv-transition-hover),
+    border-color var(--cv-transition-hover),
+    box-shadow var(--cv-transition-hover);
+}
+
+.shell a.cv-btn:disabled,
+.shell button.cv-btn:disabled,
+.shell a.cv-btn[aria-disabled='true'] {
+  cursor: not-allowed;
+  opacity: 0.55;
+  pointer-events: none;
+}
+
+.shell .cv-btn--primary {
+  background: var(--cv-primary);
+  color: var(--cv-on-primary);
+  border-color: transparent;
+}
+
+.shell .cv-btn--primary:hover:not(:disabled):not([aria-disabled='true']) {
+  background: var(--cv-accent-hover);
+  color: var(--cv-on-primary);
+}
+
+.shell .cv-btn--outline {
+  background: transparent;
+  color: var(--cv-text);
+  border-color: var(--cv-border);
+}
+
+.shell .cv-btn--outline:hover:not(:disabled):not([aria-disabled='true']) {
+  border-color: var(--cv-link-hover);
+  color: var(--cv-link-hover);
+  background: color-mix(in oklab, var(--cv-surface-2) 65%, transparent);
+}
+
+.shell a.cv-btn:focus-visible,
+.shell button.cv-btn:focus-visible {
+  outline: 2px solid var(--cv-accent);
+  outline-offset: 2px;
+  border-radius: var(--cv-radius-md);
+}
+
+.shell .cv-btn--primary:focus-visible:not(:disabled):not([aria-disabled='true']) {
+  outline: 2px solid var(--cv-on-primary);
+  outline-offset: 2px;
+  box-shadow: 0 0 0 2px var(--cv-accent);
+}
+
+.shell .cv-btn--outline:focus-visible:not(:disabled):not([aria-disabled='true']) {
+  outline: 2px solid var(--cv-accent);
+  outline-offset: 2px;
+}
+
+/*
+ * Fase 7 — tablet, mobile, grelha, toque (CHECKLIST-LAYOUT-BONITO):
+ * gutters do contentor, ritmo entre linhas da página, padding dos cartões em ecrã estreito.
+ */
+@media (max-width: 575.98px) {
+  :root {
+    --cv-page-row-gap: var(--cv-space-4);
+    --cv-card-padding: var(--cv-space-5);
+  }
+
+  .shell .main > .container,
+  .shell .footer > .container {
+    padding-left: max(0.75rem, env(safe-area-inset-left, 0px));
+    padding-right: max(0.75rem, env(safe-area-inset-right, 0px));
+  }
+}
+
+@media (min-width: 576px) and (max-width: 991.98px) {
+  :root {
+    --cv-page-row-gap: var(--cv-space-5);
+  }
+}
+
+/* Gaveta mobile: alvos de toque consistentes com o resto do site. */
+.shell .mobile-nav-drawer .mat-mdc-list-item {
+  min-height: var(--cv-touch-target-min);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .shell main > .container {
+    animation: none !important;
+  }
+
+  .shell .cv-card {
+    transition:
+      box-shadow 0.15s ease,
+      border-color 0.15s ease,
+      background-color 0.15s ease;
+  }
+
+  .shell .cv-card:hover {
+    transform: none !important;
+  }
+
+  .shell .empty-state {
+    transition: none;
+  }
 }
 
 /*
@@ -221,16 +511,55 @@ section.page .lead {
   outline: none;
 }
 
-main a:focus-visible {
+/*
+ * Foco visível: cabeçalho, rodapé e `<main>` (links fora de `main` herdavam estilo inconsistente).
+ */
+.shell main a:focus-visible,
+.shell .header a:focus-visible,
+.shell .footer a:focus-visible {
   outline: 2px solid var(--cv-accent);
   outline-offset: 2px;
   border-radius: var(--cv-radius-sm);
 }
 
-main button:focus-visible:not(:disabled) {
+.shell main button:focus-visible:not(:disabled),
+.shell .header button:focus-visible:not(:disabled),
+.shell .footer button:focus-visible:not(:disabled),
+.shell main .mat-mdc-button-base:focus-visible {
   outline: 2px solid var(--cv-accent);
   outline-offset: 2px;
   border-radius: var(--cv-radius-sm);
+}
+
+/* Saltar para o conteúdo (Fase 9 — teclado): só visível com :focus-visible. */
+.cv-skip-link {
+  position: absolute;
+  left: -9999px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  z-index: 100;
+  padding: var(--cv-space-3) var(--cv-space-5);
+  font: inherit;
+  font-weight: 600;
+  color: var(--cv-on-primary);
+  background: var(--cv-primary);
+  text-decoration: none;
+  border-radius: var(--cv-radius-md);
+  box-shadow: var(--cv-shadow-float);
+}
+
+.cv-skip-link:focus,
+.cv-skip-link:focus-visible {
+  left: max(0.5rem, env(safe-area-inset-left, 0px));
+  top: max(0.5rem, env(safe-area-inset-top, 0px));
+  width: auto;
+  height: auto;
+  overflow: visible;
+  clip-path: none;
+  outline: 3px solid var(--cv-on-primary);
+  outline-offset: 2px;
 }
 
 /*

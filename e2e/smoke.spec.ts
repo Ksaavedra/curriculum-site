@@ -7,7 +7,7 @@ test.describe('Smoke — navegação principal', () => {
     await expect(page.getByRole('heading', { level: 1 })).toBeVisible();
     await expect(page.getByRole('heading', { level: 1 })).toContainText('Kelly');
 
-    await page.getByRole('link', { name: 'Entrar em contato' }).click();
+    await page.getByRole('link', { name: 'Contactar-me' }).click();
     await expect(page).toHaveURL(/\/contato$/);
     await expect(page.getByRole('heading', { name: 'Contato' })).toBeVisible();
 
@@ -15,10 +15,10 @@ test.describe('Smoke — navegação principal', () => {
     await expect(page).toHaveURL(/\/$/);
   });
 
-  test('CTA Ver experiência e link Experiência no header', async ({ page }) => {
+  test('CTA experiência e link Experiência no header', async ({ page }) => {
     await page.goto('/');
 
-    await page.getByRole('link', { name: 'Ver experiência' }).click();
+    await page.getByRole('link', { name: 'Experiência e formação' }).click();
     await expect(page).toHaveURL(/\/experiencia$/);
     await expect(page.getByRole('heading', { name: 'Experiência' })).toBeVisible();
 
@@ -36,7 +36,9 @@ test.describe('Smoke — navegação principal', () => {
     await menuToggle.click();
     await expect(menuToggle).toHaveAttribute('aria-expanded', 'true');
 
-    await page.getByRole('link', { name: 'Contato', exact: true }).click();
+    const mobileNav = page.locator('#mobile-nav-panel');
+    await expect(mobileNav).toBeVisible();
+    await mobileNav.getByRole('link', { name: 'Contato', exact: true }).click();
     await expect(page).toHaveURL(/\/contato$/);
     await expect(menuToggle).toHaveAttribute('aria-expanded', 'false');
   });
