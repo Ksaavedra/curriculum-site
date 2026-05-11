@@ -44,6 +44,9 @@ __screenshots__/
 /test-results/
 /blob-report/
 
+# Capturas geradas por `npm run screenshots:pr` (anexar ao PR manualmente)
+/e2e-output/
+
 # System files
 .DS_Store
 Thumbs.db
