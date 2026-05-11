@@ -1,25 +1,51 @@
 <header class="header">
-  <a routerLink="/" class="brand">Currículo</a>
-  <div class="header-end">
-    <nav class="nav" aria-label="Principal">
-      @for (link of links; track link.path) {
-        <a
-          [routerLink]="link.path"
-          routerLinkActive="active"
-          [routerLinkActiveOptions]="{ exact: link.exact }"
+  <nav class="navbar navbar-expand-md header-navbar" aria-label="Principal">
+    <div class="container-fluid header-navbar-inner">
+      <a routerLink="/" class="navbar-brand brand">Currículo</a>
+
+      <div class="d-flex align-items-center gap-2 ms-auto flex-shrink-0">
+        <button
+          type="button"
+          class="theme-toggle"
+          (click)="theme.cycle()"
+          [attr.aria-label]="theme.ariaLabel()"
         >
-          <app-cv-icon [name]="link.icon" />
-          {{ link.label }}
-        </a>
-      }
-    </nav>
-    <button
-      type="button"
-      class="theme-toggle"
-      (click)="theme.cycle()"
-      [attr.aria-label]="theme.ariaLabel()"
-    >
-      {{ theme.buttonLabel() }}
-    </button>
-  </div>
+          {{ theme.buttonLabel() }}
+        </button>
+        <button
+          type="button"
+          class="navbar-toggler"
+          (click)="toggleNav()"
+          [attr.aria-expanded]="!navCollapsed"
+          [attr.aria-controls]="navPanelId"
+          aria-label="Abrir ou fechar menu de navegação"
+        >
+          <span class="navbar-toggler-icon" aria-hidden="true"></span>
+        </button>
+      </div>
+
+      <div
+        class="navbar-collapse w-100 order-3"
+        [id]="navPanelId"
+        [ngbCollapse]="navCollapsed"
+      >
+        <ul class="navbar-nav ms-md-auto header-nav-list">
+          @for (link of links; track link.path) {
+            <li class="nav-item">
+              <a
+                class="nav-link header-nav-link"
+                [routerLink]="link.path"
+                routerLinkActive="active"
+                [routerLinkActiveOptions]="{ exact: link.exact }"
+                (click)="onNavLinkClick()"
+              >
+                <app-cv-icon [name]="link.icon" />
+                {{ link.label }}
+              </a>
+            </li>
+          }
+        </ul>
+      </div>
+    </div>
+  </nav>
 </header>

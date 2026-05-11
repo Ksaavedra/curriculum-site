@@ -25,4 +25,19 @@ test.describe('Smoke — navegação principal', () => {
     await page.getByRole('link', { name: 'Currículo' }).click();
     await expect(page).toHaveURL(/\/$/);
   });
+
+  test('mobile: navbar collapse, aria-expanded e navegação', async ({ page }) => {
+    await page.setViewportSize({ width: 390, height: 844 });
+    await page.goto('/');
+
+    const menuToggle = page.getByRole('button', { name: 'Abrir ou fechar menu de navegação' });
+    await expect(menuToggle).toHaveAttribute('aria-expanded', 'false');
+
+    await menuToggle.click();
+    await expect(menuToggle).toHaveAttribute('aria-expanded', 'true');
+
+    await page.getByRole('link', { name: 'Contato', exact: true }).click();
+    await expect(page).toHaveURL(/\/contato$/);
+    await expect(menuToggle).toHaveAttribute('aria-expanded', 'false');
+  });
 });
