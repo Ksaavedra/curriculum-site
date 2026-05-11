@@ -8,6 +8,7 @@
 .hero {
   position: relative;
   max-width: 52rem;
+  margin-inline: auto;
   min-width: 0;
   padding: var(--cv-space-6) var(--cv-space-5);
   border-radius: var(--cv-radius-md);
@@ -113,7 +114,7 @@
   letter-spacing: -0.02em;
   line-height: 1.4;
   color: var(--cv-accent);
-  margin: 0 0 var(--cv-space-3);
+  margin: 0 auto var(--cv-space-3);
   max-width: 38ch;
   text-wrap: balance;
 }
@@ -123,7 +124,7 @@
   font-weight: 400;
   line-height: var(--cv-type-lh-body);
   color: var(--cv-muted);
-  margin: 0 0 var(--cv-space-7);
+  margin: 0 auto var(--cv-space-7);
   max-width: 52ch;
   text-wrap: pretty;
 }
@@ -134,4 +135,3 @@
   gap: var(--cv-space-3);
   align-items: center;
 }
-
