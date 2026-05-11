@@ -43,8 +43,8 @@
     </div>
   </section>
 
-  @if (home.highlights.length) {
-    <section class="highlights" [attr.aria-label]="home.highlightsSectionAriaLabel">
+  <section class="highlights" [attr.aria-label]="home.highlightsSectionAriaLabel">
+    @if (home.highlights.length) {
       <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 g-3 justify-content-center">
         @for (h of home.highlights; track h.label) {
           <div class="col d-flex">
@@ -55,6 +55,10 @@
           </div>
         }
       </div>
-    </section>
-  }
+    } @else {
+      <p class="empty-state" role="status">
+        Ainda não há destaques para mostrar. Quando os dados estiverem disponíveis, aparecem aqui.
+      </p>
+    }
+  </section>
 </div>

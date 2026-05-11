@@ -11,6 +11,10 @@
   gap: var(--cv-space-6);
 }
 
+.timeline-empty {
+  list-style: none;
+}
+
 .item {
   display: grid;
   grid-template-columns: minmax(8rem, 11rem) 1fr;

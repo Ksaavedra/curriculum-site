@@ -5,25 +5,29 @@
       <p class="lead">Seleção de trabalhos e experimentos técnicos.</p>
     </div>
   </div>
-  <div class="row row-cols-1 row-cols-md-2 row-cols-xl-3 g-4">
-    @for (p of cv.content.projects; track p.name) {
-      <div class="col d-flex">
-        <article class="card h-100 w-100">
-          <h2>{{ p.name }}</h2>
-          <p class="desc">{{ p.description }}</p>
-          <ul class="tech">
-            @for (t of p.tech; track t) {
-              <li>{{ t }}</li>
+  @if (cv.content.projects.length) {
+    <div class="row row-cols-1 row-cols-md-2 row-cols-xl-3 g-4">
+      @for (p of cv.content.projects; track p.name) {
+        <div class="col d-flex">
+          <article class="card h-100 w-100">
+            <h2>{{ p.name }}</h2>
+            <p class="desc">{{ p.description }}</p>
+            <ul class="tech">
+              @for (t of p.tech; track t) {
+                <li>{{ t }}</li>
+              }
+            </ul>
+            @if (p.link) {
+              <a class="link mt-auto" [href]="p.link" target="_blank" rel="noopener noreferrer">
+                <app-cv-icon name="external" />
+                Ver projeto
+              </a>
             }
-          </ul>
-          @if (p.link) {
-            <a class="link mt-auto" [href]="p.link" target="_blank" rel="noopener noreferrer">
-              <app-cv-icon name="external" />
-              Ver projeto
-            </a>
-          }
-        </article>
-      </div>
-    }
-  </div>
+          </article>
+        </div>
+      }
+    </div>
+  } @else {
+    <p class="empty-state" role="status">Nenhum projeto em destaque no momento.</p>
+  }
 </section>

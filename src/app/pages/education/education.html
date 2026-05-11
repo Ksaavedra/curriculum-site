@@ -3,20 +3,24 @@
     <div class="col-12 col-lg-10">
       <h1>Formação</h1>
       <p class="lead">Formação acadêmica e cursos relevantes.</p>
-      <ul class="list list-unstyled row g-4">
-        @for (edu of cv.content.education; track edu.institution + edu.period) {
-          <li class="col-12">
-            <article class="card h-100">
-              <p class="period">{{ edu.period }}</p>
-              <h2>{{ edu.degree }}</h2>
-              <p class="inst">{{ edu.institution }}</p>
-              @if (edu.details) {
-                <p class="details">{{ edu.details }}</p>
-              }
-            </article>
-          </li>
-        }
-      </ul>
+      @if (cv.content.education.length) {
+        <ul class="list list-unstyled row g-4">
+          @for (edu of cv.content.education; track edu.institution + edu.period) {
+            <li class="col-12">
+              <article class="card h-100">
+                <p class="period">{{ edu.period }}</p>
+                <h2>{{ edu.degree }}</h2>
+                <p class="inst">{{ edu.institution }}</p>
+                @if (edu.details) {
+                  <p class="details">{{ edu.details }}</p>
+                }
+              </article>
+            </li>
+          }
+        </ul>
+      } @else {
+        <p class="empty-state" role="status">Nenhuma formação listada no momento.</p>
+      }
     </div>
   </div>
 </section>

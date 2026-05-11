@@ -176,6 +176,21 @@ section.page .lead {
 }
 
 /*
+ * Listas vazias (ex.: conteúdo futuro via API) — mensagem legível, alinhada aos tokens do site.
+ */
+.shell .empty-state {
+  margin: 0;
+  max-width: 36rem;
+  padding: var(--cv-space-5) var(--cv-space-4);
+  font-size: var(--cv-type-body);
+  line-height: var(--cv-type-lh-body);
+  color: var(--cv-muted);
+  background: var(--cv-surface-2);
+  border: 1px solid color-mix(in oklab, var(--cv-border) 55%, transparent);
+  border-radius: var(--cv-radius-md);
+}
+
+/*
  * Navegação por teclado (WCAG 2.4.7 Focus Visible): anel só com :focus-visible,
  * para não duplicar indicador no clique do rato.
  */

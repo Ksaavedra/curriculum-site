@@ -64,7 +64,7 @@ export interface HomePrimaryCta {
  * | Linha «eyebrow» acima do nome | `eyebrow` |
  * | Herói (nome, headline, resumo, foto) | `profile` |
  * | Botões do herói | `primaryCtas` (tupla de 2) |
- * | Cards de métricas | `highlights` (vazio oculta a seção); rótulo a11y: `highlightsSectionAriaLabel` |
+ * | Cards de métricas | `highlights` (vazio mostra mensagem amigável); rótulo a11y: `highlightsSectionAriaLabel` |
  *
  * Origem: subconjunto de `CvContent` em [`cv-data.ts`](../data/cv-data.ts).
  */
