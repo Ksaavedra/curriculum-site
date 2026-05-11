@@ -20,9 +20,9 @@
           <div class="col hero-copy">
             <p class="eyebrow">{{ home.eyebrow }}</p>
             <h1 id="home-title">{{ home.profile.name }}</h1>
-            <p class="headline">{{ home.profile.headline }}</p>
-            <p class="summary">{{ home.profile.summary }}</p>
-            <div class="actions">
+            <h2 class="headline">{{ home.profile.headline }}</h2>
+            <p class="summary" id="hero-summary">{{ home.profile.summary }}</p>
+            <div class="actions" aria-label="Ações principais do herói" aria-describedby="hero-summary">
               @for (cta of home.primaryCtas; track cta.route) {
                 <a
                   [routerLink]="cta.route"

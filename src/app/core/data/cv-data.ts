@@ -14,8 +14,18 @@ export const CV_DATA: CvContent = {
   heroEyebrow: 'Olá, sou',
   highlightsSectionAriaLabel: 'Destaques',
   primaryCtas: [
-    { label: 'Entrar em contato', route: appPath('contato'), variant: 'primary', icon: 'mail' },
-    { label: 'Ver experiência', route: appPath('experiencia'), variant: 'ghost', icon: 'briefcase' },
+    {
+      label: 'Contactar-me',
+      route: appPath('contato'),
+      variant: 'primary',
+      icon: 'mail',
+    },
+    {
+      label: 'Experiência e formação',
+      route: appPath('experiencia'),
+      variant: 'ghost',
+      icon: 'briefcase',
+    },
   ],
   highlights: [
     { value: '5+', label: 'Anos em desenvolvimento web' },
@@ -29,9 +39,9 @@ export const CV_DATA: CvContent = {
       src: '/profile-photo.svg',
       alt: 'Kelly, desenvolvedora de software especializada em Angular e Node.js',
     },
-    headline: 'Desenvolvimento full stack · Angular e Node.js',
+    headline: 'Full stack · Angular, TypeScript e APIs em Node.js',
     summary:
-      'Desenvolvedora focada em aplicações web com Angular e APIs em Node.js. Priorizo código testável, segurança em endpoints REST e documentação que ajude o time a evoluir o produto com confiança.',
+      'Construo e evoluo produtos web com Angular no front e Node.js no back: contratos de API claros, validação de dados, testes onde o impacto é maior e revisão de código em equipa. Valorizo segurança em REST (auth, limites, headers) e documentação que reduz dúvidas em produção.',
     location: 'Brasil',
     email: 'kelly@example.com',
     phone: '+55 (11) 99999-9999',

@@ -106,12 +106,16 @@
   color: var(--cv-text);
 }
 
-.hero .headline {
-  font-size: var(--cv-type-subtitle);
-  font-weight: 500;
-  line-height: 1.45;
+.hero h2.headline {
+  font-family: var(--cv-font-sans);
+  font-size: clamp(1.08rem, 2.1vw, 1.35rem);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.4;
   color: var(--cv-accent);
   margin: 0 0 var(--cv-space-3);
+  max-width: 38ch;
+  text-wrap: balance;
 }
 
 .hero .summary {
@@ -120,11 +124,14 @@
   line-height: var(--cv-type-lh-body);
   color: var(--cv-muted);
   margin: 0 0 var(--cv-space-7);
+  max-width: 52ch;
+  text-wrap: pretty;
 }
 
 .actions {
   display: flex;
   flex-wrap: wrap;
   gap: var(--cv-space-3);
+  align-items: center;
 }
 
