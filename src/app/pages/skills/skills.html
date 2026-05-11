@@ -1,17 +1,21 @@
 <section class="page">
   <div class="row justify-content-center">
     <div class="col-12 col-lg-10 col-xl-8">
-      <h1>Habilidades</h1>
-      <p class="lead">Tecnologias e ferramentas que utilizo no dia a dia.</p>
-      @if (cv.content.skills.length) {
-        <ul class="tags">
+      <div class="cv-section">
+        <h1>Habilidades</h1>
+        <p class="lead">Tecnologias e ferramentas que utilizo no dia a dia.</p>
+      </div>
+      <div class="cv-section">
+        @if (cv.content.skills.length) {
+          <ul class="tags">
           @for (skill of cv.content.skills; track skill) {
             <li>{{ skill }}</li>
           }
-        </ul>
-      } @else {
-        <p class="empty-state" role="status">Nenhuma habilidade listada no momento.</p>
-      }
+          </ul>
+        } @else {
+          <p class="empty-state" role="status">Nenhuma habilidade listada no momento.</p>
+        }
+      </div>
     </div>
   </div>
 </section>

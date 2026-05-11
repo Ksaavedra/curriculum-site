@@ -1,18 +1,21 @@
 <section class="page">
   <div class="row justify-content-center">
     <div class="col-12 col-md-8 col-lg-6 col-xl-5">
-      <h1>Contato</h1>
-      <p class="lead">Envie uma mensagem — retorno o quanto antes possível.</p>
+      <div class="cv-section">
+        <h1>Contato</h1>
+        <p class="lead">Envie uma mensagem — retorno o quanto antes possível.</p>
+      </div>
 
-      @if (success()) {
-        <p class="banner ok" role="status">Mensagem enviada com sucesso.</p>
-      }
+      <div class="cv-section">
+        @if (success()) {
+          <p class="banner ok" role="status">Mensagem enviada com sucesso.</p>
+        }
 
-      @if (errorMsg(); as err) {
-        <p class="banner err" role="alert">{{ err }}</p>
-      }
+        @if (errorMsg(); as err) {
+          <p class="banner err" role="alert">{{ err }}</p>
+        }
 
-      <form [formGroup]="form" (ngSubmit)="submit()" class="contact-form" novalidate>
+        <form [formGroup]="form" (ngSubmit)="submit()" class="contact-form" novalidate>
         <mat-form-field appearance="outline" class="w-100">
           <mat-label>Nome</mat-label>
           <input matInput id="contact-name" formControlName="name" autocomplete="name" />
@@ -40,7 +43,8 @@
         <button mat-flat-button color="primary" type="submit" [disabled]="submitting()">
           {{ submitting() ? 'Enviando…' : 'Enviar' }}
         </button>
-      </form>
+        </form>
+      </div>
     </div>
   </div>
 </section>

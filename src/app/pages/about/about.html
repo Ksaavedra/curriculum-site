@@ -1,9 +1,12 @@
 <section class="page">
   <div class="row justify-content-center">
     <div class="col-12 col-lg-10 col-xl-8">
-      <h1>Sobre</h1>
-      <p class="lead">{{ profile.summary }}</p>
-      <dl class="meta row row-cols-1 row-cols-sm-2 g-4">
+      <div class="cv-section">
+        <h1>Sobre</h1>
+        <p class="lead">{{ profile.summary }}</p>
+      </div>
+      <div class="cv-section">
+        <dl class="meta row row-cols-1 row-cols-sm-2 g-4">
         <div class="col">
           <dt>Local</dt>
           <dd>{{ profile.location }}</dd>
@@ -34,7 +37,8 @@
             </dd>
           </div>
         }
-      </dl>
+        </dl>
+      </div>
     </div>
   </div>
 </section>

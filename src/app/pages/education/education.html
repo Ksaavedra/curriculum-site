@@ -1,10 +1,13 @@
 <section class="page">
   <div class="row justify-content-center">
     <div class="col-12 col-lg-10">
-      <h1>Formação</h1>
-      <p class="lead">Formação acadêmica e cursos relevantes.</p>
-      @if (cv.content.education.length) {
-        <ul class="list list-unstyled row g-4">
+      <div class="cv-section">
+        <h1>Formação</h1>
+        <p class="lead">Formação acadêmica e cursos relevantes.</p>
+      </div>
+      <div class="cv-section">
+        @if (cv.content.education.length) {
+          <ul class="list list-unstyled row g-4">
           @for (edu of cv.content.education; track edu.institution + edu.period) {
             <li class="col-12">
               <article class="card h-100">
@@ -17,10 +20,11 @@
               </article>
             </li>
           }
-        </ul>
-      } @else {
-        <p class="empty-state" role="status">Nenhuma formação listada no momento.</p>
-      }
+          </ul>
+        } @else {
+          <p class="empty-state" role="status">Nenhuma formação listada no momento.</p>
+        }
+      </div>
     </div>
   </div>
 </section>

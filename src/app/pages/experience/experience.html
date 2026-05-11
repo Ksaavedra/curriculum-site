@@ -1,9 +1,12 @@
 <section class="page">
   <div class="row justify-content-center">
     <div class="col-12 col-xl-10">
-      <h1>Experiência</h1>
-      <p class="lead">Trajetória profissional e principais contribuições.</p>
-      <ul class="timeline">
+      <div class="cv-section">
+        <h1>Experiência</h1>
+        <p class="lead">Trajetória profissional e principais contribuições.</p>
+      </div>
+      <div class="cv-section">
+        <ul class="timeline">
         @for (job of cv.content.experience; track job.company + job.period) {
           <li class="item">
             <div class="period">{{ job.period }}</div>
@@ -25,7 +28,8 @@
             <p class="empty-state" role="status">Nenhuma experiência listada no momento.</p>
           </li>
         }
-      </ul>
+        </ul>
+      </div>
     </div>
   </div>
 </section>

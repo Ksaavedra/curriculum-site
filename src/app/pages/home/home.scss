@@ -1,7 +1,7 @@
 .home {
   display: flex;
   flex-direction: column;
-  gap: clamp(var(--cv-space-6), 5vw, var(--cv-space-10));
+  gap: 0;
   min-width: 0;
 }
 
