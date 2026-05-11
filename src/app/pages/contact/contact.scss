@@ -28,4 +28,6 @@
 
 .contact-form button[mat-flat-button] {
   margin-top: var(--cv-space-2);
+  min-height: var(--cv-touch-target-min);
+  padding-inline: var(--cv-space-6);
 }
