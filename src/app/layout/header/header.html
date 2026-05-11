@@ -2,7 +2,7 @@
   @if (isMdUp()) {
     <nav class="navbar navbar-expand-md header-navbar" aria-label="Principal">
       <div class="container-fluid header-navbar-inner">
-        <a routerLink="/" class="navbar-brand brand">Currículo</a>
+        <a routerLink="/" class="navbar-brand brand" aria-label="Currículo — página inicial">Currículo</a>
 
         <ul class="navbar-nav ms-md-auto header-nav-list">
           @for (link of links; track link.path) {
@@ -44,7 +44,7 @@
       >
         <mat-icon aria-hidden="true">menu</mat-icon>
       </button>
-      <a routerLink="/" class="brand toolbar-brand">Currículo</a>
+      <a routerLink="/" class="brand toolbar-brand" aria-label="Currículo — página inicial">Currículo</a>
       <span class="toolbar-spacer"></span>
       <button
         type="button"

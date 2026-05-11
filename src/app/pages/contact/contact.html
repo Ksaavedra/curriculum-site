@@ -1,8 +1,8 @@
-<section class="page">
+<section class="page" aria-labelledby="page-heading">
   <div class="row justify-content-center">
     <div class="col-12 col-md-8 col-lg-7 col-xl-6 cv-page-col cv-page-col--narrow">
       <div class="cv-section">
-        <h1>Contato</h1>
+        <h1 id="page-heading">Contato</h1>
         <p class="lead">Envie uma mensagem — retorno o quanto antes possível.</p>
       </div>
 
@@ -15,7 +15,13 @@
           <p class="banner err" role="alert">{{ err }}</p>
         }
 
-        <form [formGroup]="form" (ngSubmit)="submit()" class="contact-form" novalidate>
+        <form
+          [formGroup]="form"
+          (ngSubmit)="submit()"
+          class="contact-form"
+          novalidate
+          aria-label="Formulário de contacto"
+        >
           <mat-form-field appearance="outline" class="w-100" subscriptSizing="dynamic">
             <mat-label>Nome para contacto</mat-label>
             <input matInput id="contact-name" formControlName="name" autocomplete="name" />

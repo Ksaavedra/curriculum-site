@@ -1,12 +1,12 @@
-<section class="page">
+<section class="page" aria-labelledby="page-heading">
   <div class="row justify-content-center">
     <div class="col-12 col-lg-11 col-xl-10 cv-page-col">
       <div class="cv-section">
-        <h1>Sobre</h1>
+        <h1 id="page-heading">Sobre</h1>
         <p class="lead">{{ profile.summary }}</p>
       </div>
       <div class="cv-section">
-        <dl class="meta cv-meta-grid row row-cols-1 row-cols-sm-2 g-4 gy-md-4">
+        <dl class="meta cv-meta-grid row row-cols-1 row-cols-sm-2 g-4 gy-md-4" aria-label="Dados de contacto e redes">
         <div class="col">
           <dt>Local</dt>
           <dd>{{ profile.location }}</dd>

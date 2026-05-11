@@ -1,10 +1,12 @@
 <mat-sidenav-container class="app-root-drawer">
+  <a href="#conteudo-principal" class="cv-skip-link">Saltar para o conteúdo</a>
   <mat-sidenav
     #navDrawer="matSidenav"
     id="mobile-nav-panel"
     class="mobile-nav-drawer"
     mode="over"
     position="start"
+    aria-label="Navegação em menu lateral para ecrãs pequenos"
     [fixedInViewport]="true"
     [autoFocus]="false"
     (openedChange)="onMobileDrawerOpened($event)"
@@ -33,12 +35,12 @@
         [drawerOpened]="mobileDrawerOpen()"
         (toggleMobileNav)="onMobileNavToggle()"
       />
-      <main class="main">
+      <main id="conteudo-principal" class="main" tabindex="-1" aria-label="Conteúdo principal">
         <div class="container">
           <router-outlet />
         </div>
       </main>
-      <footer class="footer">
+      <footer class="footer" aria-label="Rodapé">
         <div class="container">
           <small>&copy; {{ year }} · Currículo online</small>
         </div>
