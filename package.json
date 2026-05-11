@@ -8,7 +8,8 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "smoke": "playwright test e2e/smoke.spec.ts",
-    "screenshots:pr": "playwright test e2e/visual-review.spec.ts"
+    "screenshots:pr": "playwright test e2e/visual-review.spec.ts",
+    "verify": "npm run build && npm run smoke"
   },
   "private": true,
   "packageManager": "npm@9.8.1",
