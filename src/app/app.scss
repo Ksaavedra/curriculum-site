@@ -44,6 +44,12 @@
   padding-right: env(safe-area-inset-right, 0px);
 }
 
+@media (max-width: 575.98px) {
+  .main {
+    padding-top: var(--cv-space-4);
+  }
+}
+
 @media (min-width: 640px) {
   .main {
     padding-top: var(--cv-space-8);

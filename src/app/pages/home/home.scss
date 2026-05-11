@@ -15,6 +15,10 @@
   border: 1px solid color-mix(in oklab, var(--cv-border) 45%, transparent);
   overflow: hidden;
   isolation: isolate;
+
+  @media (max-width: 575.98px) {
+    padding: var(--cv-space-5) var(--cv-space-4);
+  }
 }
 
 /* Mesh leve (só CSS): não compete com o texto; intensidade via --cv-hero-mesh-* em styles.scss */
@@ -56,6 +60,7 @@
 .hero-copy {
   min-width: 0;
   flex: 1;
+  // text-align: center;
 }
 
 .highlights {
@@ -134,4 +139,17 @@
   flex-wrap: wrap;
   gap: var(--cv-space-3);
   align-items: center;
+  justify-content: center;
+  width: 100%;
+
+  @media (max-width: 575.98px) {
+    flex-direction: column;
+    align-items: stretch;
+
+    .cv-btn {
+      width: 100%;
+      max-width: min(22rem, 100%);
+      margin-inline: auto;
+    }
+  }
 }

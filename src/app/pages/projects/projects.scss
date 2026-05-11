@@ -92,7 +92,7 @@
   font-weight: 500;
   color: var(--cv-accent);
   text-decoration: none;
-  min-height: 2.5rem;
+  min-height: var(--cv-touch-target-min);
 
   &:hover {
     text-decoration: underline;
