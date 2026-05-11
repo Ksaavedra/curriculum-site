@@ -88,14 +88,18 @@ export const CV_DATA: CvContent = {
       name: 'Site de currículo',
       description:
         'SPA em Angular com API Express para formulário de contato, CORS e envio por e-mail opcional.',
-      tech: ['Angular', 'Express'],
+      tech: ['Angular', 'TypeScript', 'Express', 'REST'],
+      thumb: '/project-thumb-curriculum.svg',
       link: 'https://github.com/kelly-dev/curriculum-site',
+      demoUrl: '/',
     },
     {
       name: 'API de contato',
       description:
         'Serviço REST com helmet, rate limit no POST e validação de campos antes do envio.',
-      tech: ['Node.js', 'Express'],
+      tech: ['Node.js', 'Express', 'Helmet', 'REST'],
+      thumb: '/project-thumb-api.svg',
+      link: 'https://github.com/kelly-dev/contact-api',
     },
   ],
 };

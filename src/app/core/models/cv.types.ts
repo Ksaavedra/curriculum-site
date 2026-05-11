@@ -39,7 +39,12 @@ export interface ProjectItem {
   name: string;
   description: string;
   tech: string[];
+  /** URL do repositório ou página do projecto. */
   link?: string;
+  /** Miniatura decorativa (`/ficheiro.svg` em `public/`). */
+  thumb?: string;
+  /** URL da demo (site ou API pública). */
+  demoUrl?: string;
 }
 
 /** Métricas rápidas na home (1–3 itens): experiência, volume de trabalho, formação etc. */

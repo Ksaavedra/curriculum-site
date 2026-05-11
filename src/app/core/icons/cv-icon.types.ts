@@ -7,4 +7,5 @@ export type CvIconName =
   | 'code'
   | 'folder'
   | 'mail'
-  | 'external';
+  | 'external'
+  | 'globe';
