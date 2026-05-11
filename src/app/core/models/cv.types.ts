@@ -24,6 +24,8 @@ export interface ExperienceItem {
   period: string;
   description: string;
   highlights?: string[];
+  /** Tecnologias ou domínios (opcional); exibidas como tags no cartão. */
+  tags?: string[];
 }
 
 export interface EducationItem {

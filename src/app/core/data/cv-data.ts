@@ -54,18 +54,23 @@ export const CV_DATA: CvContent = {
       role: 'Desenvolvedora full stack',
       period: '2023 — presente',
       description:
-        'Evolução de produtos SaaS em Angular e Node.js, participação em refinamentos e deploy contínuo.',
+        'Produtos SaaS em Angular e Node.js: refinamentos com produto, entregas incrementais e pipeline de deploy contínuo, com foco em qualidade e segurança das integrações.',
       highlights: [
-        'Cobertura de testes em funcionalidades críticas e revisão de código em par',
-        'Integração com APIs REST, autenticação JWT e validação consistente de payloads',
+        'Testes e revisão de código em par em fluxos sensíveis a regressão',
+        'APIs REST com JWT, validação de payloads e observabilidade em produção',
       ],
+      tags: ['Angular', 'TypeScript', 'Node.js', 'REST', 'CI/CD'],
     },
     {
       company: 'Agência Horizonte Digital',
       role: 'Desenvolvedora front-end',
       period: '2020 — 2023',
       description:
-        'Sites institucionais e painéis administrativos; manutenção de legado e novos módulos em Angular.',
+        'Sites institucionais e painéis administrativos em Angular; evolução de legado e novos módulos, alinhando UX, performance e acessibilidade onde o impacto era maior.',
+      highlights: [
+        'Componentes reutilizáveis e estilos consistentes (SCSS / design system leve)',
+      ],
+      tags: ['Angular', 'HTML', 'SCSS', 'Acessibilidade'],
     },
   ],
   education: [

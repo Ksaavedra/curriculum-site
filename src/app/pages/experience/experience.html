@@ -3,31 +3,45 @@
     <div class="col-12 col-lg-11 col-xl-10 cv-page-col">
       <div class="cv-section">
         <h1>Experiência</h1>
-        <p class="lead">Trajetória profissional e principais contribuições.</p>
+        <p class="lead lead--experience">
+          Trajetória profissional: funções, contexto e contributos com maior impacto.
+        </p>
       </div>
       <div class="cv-section">
-        <ul class="timeline">
-        @for (job of cv.content.experience; track job.company + job.period) {
-          <li class="item">
-            <div class="period">{{ job.period }}</div>
-            <div class="body cv-card cv-card--timeline">
-              <h2>{{ job.role }}</h2>
-              <p class="company">{{ job.company }}</p>
-              <p class="desc">{{ job.description }}</p>
-              @if (job.highlights?.length) {
-                <ul class="highlights">
-                  @for (h of job.highlights; track h) {
-                    <li>{{ h }}</li>
-                  }
-                </ul>
-              }
-            </div>
-          </li>
-        } @empty {
-          <li class="timeline-empty">
-            <p class="empty-state" role="status">Nenhuma experiência listada no momento.</p>
-          </li>
-        }
+        <ul class="timeline" aria-label="Linha do tempo profissional">
+          @for (job of cv.content.experience; track job.company + job.period) {
+            <li class="item">
+              <div class="rail">
+                <span class="rail-marker" aria-hidden="true"></span>
+                <time class="period">{{ job.period }}</time>
+              </div>
+              <article class="body cv-card cv-card--timeline">
+                <header class="card-head">
+                  <h2>{{ job.role }}</h2>
+                  <p class="company">{{ job.company }}</p>
+                </header>
+                <p class="desc">{{ job.description }}</p>
+                @if (job.highlights?.length) {
+                  <ul class="highlights">
+                    @for (h of job.highlights; track h) {
+                      <li>{{ h }}</li>
+                    }
+                  </ul>
+                }
+                @if (job.tags?.length) {
+                  <ul class="job-tags" aria-label="Tecnologias e temas">
+                    @for (tag of job.tags; track tag) {
+                      <li>{{ tag }}</li>
+                    }
+                  </ul>
+                }
+              </article>
+            </li>
+          } @empty {
+            <li class="timeline-empty">
+              <p class="empty-state" role="status">Nenhuma experiência listada no momento.</p>
+            </li>
+          }
         </ul>
       </div>
     </div>
