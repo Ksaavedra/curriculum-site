@@ -10,7 +10,7 @@
           <div class="row cv-card-grid row-cols-1 row-cols-md-2 row-cols-xl-3 g-4 gy-lg-5">
             @for (p of cv.content.projects; track p.name) {
               <div class="col">
-                <article class="card h-100 w-100">
+                <article class="cv-card h-100 w-100">
                   <h2>{{ p.name }}</h2>
                   <p class="desc">{{ p.description }}</p>
                   <ul class="tech">

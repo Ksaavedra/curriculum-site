@@ -62,12 +62,13 @@
   margin-inline: auto;
 }
 
-.metric {
-  padding: var(--cv-space-5);
-  border-radius: var(--cv-radius-md);
-  border: 1px solid var(--cv-border);
-  background: var(--cv-surface);
-  box-shadow: var(--cv-shadow-sm);
+/* `.cv-card` global em styles.scss; métricas: bloco compacto e centrado */
+.cv-card.metric {
+  gap: var(--cv-space-2);
+  text-align: center;
+  align-items: center;
+  padding-block: var(--cv-space-5);
+  padding-inline: var(--cv-space-5);
 }
 
 .metric .value {

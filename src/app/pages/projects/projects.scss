@@ -2,23 +2,7 @@
   min-width: 0;
 }
 
-.card {
-  padding: var(--cv-space-5);
-  border: 1px solid var(--cv-border);
-  border-radius: var(--cv-radius-md);
-  background: var(--cv-surface-2);
-  box-shadow: var(--cv-shadow-sm);
-  transition: box-shadow var(--cv-transition-hover);
-  display: flex;
-  flex-direction: column;
-  gap: var(--cv-space-3);
-
-  &:hover {
-    box-shadow: var(--cv-shadow-float);
-  }
-}
-
-.card h2 {
+.cv-card h2 {
   margin: 0;
   font-size: 1.1rem;
   font-weight: 600;

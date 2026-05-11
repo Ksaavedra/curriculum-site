@@ -32,15 +32,7 @@
 }
 
 .body {
-  border-left: 2px solid var(--cv-border);
-  padding-left: min(var(--cv-space-4), 4vw);
   min-width: 0;
-}
-
-@media (max-width: 600px) {
-  .body {
-    padding-left: var(--cv-space-3);
-  }
 }
 
 .body h2 {
