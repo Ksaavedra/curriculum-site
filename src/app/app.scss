@@ -3,6 +3,31 @@
   min-height: 100dvh;
 }
 
+.app-root-drawer {
+  min-height: 100dvh;
+}
+
+.app-sidenav-content {
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+}
+
+.mobile-nav-drawer {
+  width: min(18rem, 85vw);
+  border-right: 1px solid var(--cv-border);
+  background: var(--cv-surface);
+}
+
+.mobile-sidenav-nav a.mobile-nav-active {
+  background: color-mix(in oklab, var(--cv-accent) 14%, transparent);
+  color: var(--cv-accent);
+}
+
+.mobile-sidenav-nav .mobile-nav-label {
+  margin-left: var(--cv-space-2);
+}
+
 .shell {
   min-height: 100dvh;
   display: flex;
