@@ -2,6 +2,10 @@
  * Conteúdo do currículo e da home — integrado para demonstração.
  * Antes de publicar: ajuste nome, localização, e-mail, telefone e links sociais no objeto `profile`.
  * A home consome via CvDataService — ver docs/CHECKLIST-HOME.md (Fase 2).
+ *
+ * **Assets:** ficheiros em `frontend/public/` vão para a **raiz** do *site* (`/ficheiro.ext`), conforme
+ * `angular.json` → `assets` com `input: "public"`. Use URL absoluta de caminho (`/…`) em `photo.src`.
+ * Para bitmaps reais, preferir **WebP** (ou AVIF) + atributos `width`/`height` e, se necessário, `srcset`/`sizes` no template.
  */
 import { appPath } from '../constants/internal-routes';
 import { CvContent } from '../models/cv.types';
@@ -21,6 +25,7 @@ export const CV_DATA: CvContent = {
   profile: {
     name: 'Kelly',
     photo: {
+      /** Placeholder vector em `public/profile-photo.svg` (leve, escalável). */
       src: '/profile-photo.svg',
       alt: 'Kelly, desenvolvedora de software especializada em Angular e Node.js',
     },
