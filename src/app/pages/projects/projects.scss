@@ -72,6 +72,26 @@
     color: var(--cv-text);
     background: color-mix(in oklab, var(--cv-surface-2) 88%, var(--cv-accent));
     border: 1px solid color-mix(in oklab, var(--cv-border) 70%, var(--cv-accent));
+    transition:
+      border-color var(--cv-transition-card),
+      background-color var(--cv-transition-card),
+      transform var(--cv-transition-card);
+
+    @media (hover: hover) and (pointer: fine) {
+      &:hover {
+        border-color: color-mix(in oklab, var(--cv-border) 45%, var(--cv-accent));
+        background: color-mix(in oklab, var(--cv-surface-2) 78%, var(--cv-accent));
+        transform: translateY(-1px);
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      transition: border-color var(--cv-transition-hover), background-color var(--cv-transition-hover);
+
+      &:hover {
+        transform: none;
+      }
+    }
   }
 }
 
@@ -93,9 +113,14 @@
   color: var(--cv-accent);
   text-decoration: none;
   min-height: var(--cv-touch-target-min);
+  transition:
+    color var(--cv-transition-hover),
+    text-decoration-color var(--cv-transition-hover),
+    opacity var(--cv-transition-hover);
 
   &:hover {
     text-decoration: underline;
+    text-underline-offset: 0.12em;
   }
 
   &:focus-visible {

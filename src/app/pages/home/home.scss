@@ -13,11 +13,32 @@
   padding: var(--cv-space-6) var(--cv-space-5);
   border-radius: var(--cv-radius-md);
   border: 1px solid color-mix(in oklab, var(--cv-border) 45%, transparent);
+  box-shadow: var(--cv-shadow-sm);
   overflow: hidden;
   isolation: isolate;
+  transition:
+    box-shadow var(--cv-transition-card),
+    border-color var(--cv-transition-card),
+    transform var(--cv-transition-card);
 
   @media (max-width: 575.98px) {
     padding: var(--cv-space-5) var(--cv-space-4);
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--cv-shadow-float);
+      border-color: color-mix(in oklab, var(--cv-border) 38%, var(--cv-accent));
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    transition: box-shadow var(--cv-transition-hover), border-color var(--cv-transition-hover);
+
+    &:hover {
+      transform: none;
+    }
   }
 }
 
