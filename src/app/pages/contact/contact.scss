@@ -3,10 +3,11 @@
 }
 
 .banner {
-  padding: var(--cv-space-3);
+  padding: var(--cv-space-3) var(--cv-space-4);
   border-radius: var(--cv-radius-md);
   margin: 0 0 var(--cv-space-4);
-  font-size: 0.95rem;
+  font-size: var(--cv-type-body);
+  line-height: var(--cv-type-lh-body);
 
   &.ok {
     background: color-mix(in oklab, var(--cv-accent) 15%, transparent);
@@ -16,13 +17,15 @@
   &.err {
     background: color-mix(in oklab, var(--cv-danger-text) 14%, transparent);
     border: 1px solid color-mix(in oklab, var(--cv-danger-text) 38%, transparent);
+    color: var(--cv-danger-text);
+    font-weight: 500;
   }
 }
 
 .contact-form {
   display: flex;
   flex-direction: column;
-  gap: var(--cv-space-3);
+  gap: var(--cv-space-4);
   align-items: stretch;
 }
 
@@ -30,4 +33,90 @@
   margin-top: var(--cv-space-2);
   min-height: var(--cv-touch-target-min);
   padding-inline: var(--cv-space-6);
+}
+
+/*
+ * Material outline — inputs, labels, erros e :focus-visible (Fase 3 CHECKLIST-LAYOUT-BONITO).
+ * `::ng-deep` necessário: conteúdo MDC projectado fora do encapsulamento do componente.
+ */
+:host ::ng-deep .contact-form {
+  .mat-mdc-form-field {
+    width: 100%;
+  }
+
+  .mat-mdc-text-field-wrapper {
+    background-color: var(--cv-surface);
+    border-radius: var(--cv-radius-sm);
+  }
+
+  .mat-mdc-notch-piece {
+    border-color: var(--cv-card-border);
+  }
+
+  .mdc-text-field--outlined:not(.mdc-text-field--disabled).mdc-text-field--focused:not(.mdc-text-field--error)
+    .mat-mdc-notch-piece {
+    border-color: var(--cv-accent);
+  }
+
+  .mdc-text-field--outlined.mat-mdc-text-field-wrapper.mdc-text-field--invalid .mat-mdc-notch-piece {
+    border-color: color-mix(in oklab, var(--cv-danger-text) 75%, var(--cv-border));
+  }
+
+  input.mat-mdc-input-element,
+  textarea.mat-mdc-input-element {
+    font-size: var(--cv-type-body);
+    line-height: var(--cv-type-lh-body);
+    color: var(--cv-text);
+    caret-color: var(--cv-accent);
+  }
+
+  input.mat-mdc-input-element {
+    min-height: var(--cv-touch-target-min);
+    padding-block: var(--cv-space-2);
+  }
+
+  textarea.mat-mdc-input-element {
+    min-height: 8.5rem;
+    padding-block: var(--cv-space-3);
+  }
+
+  .mdc-floating-label,
+  .mat-mdc-floating-label {
+    font-weight: 500;
+    color: var(--cv-muted);
+  }
+
+  .mdc-text-field--focused:not(.mdc-text-field--invalid) .mdc-floating-label {
+    color: var(--cv-accent);
+  }
+
+  .mdc-text-field--invalid .mdc-floating-label {
+    color: color-mix(in oklab, var(--cv-danger-text) 90%, var(--cv-text));
+  }
+
+  mat-hint,
+  .mat-mdc-form-field-hint,
+  .mat-mdc-form-field-hint-wrapper {
+    color: var(--cv-muted);
+    font-size: var(--cv-type-caption);
+    line-height: 1.45;
+  }
+
+  mat-error,
+  .mat-mdc-form-field-error,
+  .mat-mdc-form-field-error-wrapper {
+    font-size: var(--cv-type-caption);
+    font-weight: 500;
+    color: var(--cv-danger-text);
+    line-height: 1.45;
+  }
+
+  .mat-mdc-form-field-subscript-wrapper {
+    margin-top: var(--cv-space-1);
+  }
+
+  .mat-mdc-text-field-wrapper:has(.mat-mdc-input-element:focus-visible) {
+    box-shadow: 0 0 0 2px color-mix(in oklab, var(--cv-accent) 28%, transparent);
+    border-radius: var(--cv-radius-sm);
+  }
 }

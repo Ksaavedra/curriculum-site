@@ -42,7 +42,10 @@ export class ContactComponent {
       },
       error: (err: { error?: { message?: string } }) => {
         this.submitting.set(false);
-        this.errorMsg.set(err?.error?.message ?? 'Não foi possível enviar. Tente novamente.');
+        this.errorMsg.set(
+          err?.error?.message ??
+            'Não foi possível enviar a mensagem. Verifique a ligação e tente de novo dentro de instantes.',
+        );
       },
     });
   }
@@ -53,16 +56,18 @@ export class ContactComponent {
       return null;
     }
     if (c.hasError('required')) {
-      return 'Campo obrigatório.';
+      return 'Preencha este campo para continuar.';
     }
     if (c.hasError('email')) {
-      return 'E-mail inválido.';
+      return 'Indique um e-mail válido (ex.: nome@exemplo.com).';
     }
     if (c.hasError('minlength')) {
-      return `Mínimo de ${c.errors?.['minlength'].requiredLength} caracteres.`;
+      const n = c.errors?.['minlength'].requiredLength;
+      return `A mensagem precisa de pelo menos ${n} caracteres.`;
     }
     if (c.hasError('maxlength')) {
-      return `Máximo de ${c.errors?.['maxlength'].requiredLength} caracteres.`;
+      const n = c.errors?.['maxlength'].requiredLength;
+      return `Este campo aceita no máximo ${n} caracteres.`;
     }
     return null;
   }
