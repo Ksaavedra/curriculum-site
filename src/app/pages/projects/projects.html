@@ -1,19 +1,15 @@
 <section class="page">
   <div class="row justify-content-center">
-    <div class="col-12 col-lg-11 col-xl-10">
+    <div class="col-12 col-lg-11 col-xl-10 cv-page-col">
       <div class="cv-section">
-        <div class="row">
-          <div class="col-12">
-            <h1>Projetos</h1>
-            <p class="lead">Seleção de trabalhos e experimentos técnicos.</p>
-          </div>
-        </div>
+        <h1>Projetos</h1>
+        <p class="lead">Seleção de trabalhos e experimentos técnicos.</p>
       </div>
       <div class="cv-section">
         @if (cv.content.projects.length) {
-          <div class="row row-cols-1 row-cols-md-2 row-cols-xl-3 g-4 gy-lg-5">
+          <div class="row cv-card-grid row-cols-1 row-cols-md-2 row-cols-xl-3 g-4 gy-lg-5">
             @for (p of cv.content.projects; track p.name) {
-              <div class="col d-flex">
+              <div class="col">
                 <article class="card h-100 w-100">
                   <h2>{{ p.name }}</h2>
                   <p class="desc">{{ p.description }}</p>
