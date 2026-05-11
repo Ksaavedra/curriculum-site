@@ -52,6 +52,17 @@ export class App implements AfterViewInit {
     this.mobileDrawerOpen.set(opened);
   }
 
+  /** Garante `aria-expanded` alinhado ao estado real após `toggle()` (Promise do Material). */
+  protected onMobileNavToggle(): void {
+    const d = this.navDrawer;
+    if (!d) {
+      return;
+    }
+    void d.toggle().then(() => {
+      this.mobileDrawerOpen.set(d.opened);
+    });
+  }
+
   ngAfterViewInit(): void {
     this.router.events
       .pipe(
