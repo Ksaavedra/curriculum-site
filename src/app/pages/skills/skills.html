@@ -1,9 +1,13 @@
 <section class="page">
-  <h1>Habilidades</h1>
-  <p class="lead">Tecnologias e ferramentas que utilizo no dia a dia.</p>
-  <ul class="tags">
-    @for (skill of cv.content.skills; track skill) {
-      <li>{{ skill }}</li>
-    }
-  </ul>
+  <div class="row justify-content-center">
+    <div class="col-12 col-lg-10 col-xl-8">
+      <h1>Habilidades</h1>
+      <p class="lead">Tecnologias e ferramentas que utilizo no dia a dia.</p>
+      <ul class="tags">
+        @for (skill of cv.content.skills; track skill) {
+          <li>{{ skill }}</li>
+        }
+      </ul>
+    </div>
+  </div>
 </section>

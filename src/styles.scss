@@ -129,8 +129,8 @@ body {
   --cv-hero-mesh-c: 6%;
 }
 
-/* Páginas internas: h1 (nível 1) > p.lead (nível 2) > conteúdo (nível 3) */
-section.page > h1 {
+/* Páginas internas: h1 (nível 1) > p.lead (nível 2) > conteúdo (nível 3) — grelha Bootstrap dentro de `.page` */
+section.page h1 {
   margin: 0 0 var(--cv-space-2);
   font-family: var(--cv-font-serif);
   font-size: var(--cv-type-page-title);
@@ -140,7 +140,7 @@ section.page > h1 {
   color: var(--cv-text);
 }
 
-section.page > p.lead {
+section.page .lead {
   margin: 0 0 var(--cv-space-6);
   font-size: var(--cv-type-body);
   font-weight: 400;

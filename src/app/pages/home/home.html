@@ -1,37 +1,43 @@
 <div class="home">
   <section class="hero" aria-labelledby="home-title">
-    <div class="hero-layout">
-      @if (home.profile.photo; as ph) {
-        <div class="hero-photo">
-          <img
-            [src]="ph.src"
-            [alt]="ph.alt"
-            width="160"
-            height="160"
-            decoding="async"
-            fetchpriority="high"
-          />
-        </div>
-      }
-      <div class="hero-copy">
-        <p class="eyebrow">{{ home.eyebrow }}</p>
-        <h1 id="home-title">{{ home.profile.name }}</h1>
-        <p class="headline">{{ home.profile.headline }}</p>
-        <p class="summary">{{ home.profile.summary }}</p>
-        <div class="actions">
-          @for (cta of home.primaryCtas; track cta.route) {
-            <a
-              [routerLink]="cta.route"
-              class="btn"
-              [class.primary]="cta.variant === 'primary'"
-              [class.ghost]="cta.variant === 'ghost'"
-            >
-              @if (cta.icon) {
-                <app-cv-icon [name]="cta.icon" />
-              }
-              {{ cta.label }}
-            </a>
+    <div class="row justify-content-center">
+      <div class="col-12 col-xl-10 hero-stack">
+        <div class="row flex-column flex-md-row align-items-md-center g-4">
+          @if (home.profile.photo; as ph) {
+            <div class="col-12 col-md-auto">
+              <div class="hero-photo">
+                <img
+                  [src]="ph.src"
+                  [alt]="ph.alt"
+                  width="160"
+                  height="160"
+                  decoding="async"
+                  fetchpriority="high"
+                />
+              </div>
+            </div>
           }
+          <div class="col hero-copy">
+            <p class="eyebrow">{{ home.eyebrow }}</p>
+            <h1 id="home-title">{{ home.profile.name }}</h1>
+            <p class="headline">{{ home.profile.headline }}</p>
+            <p class="summary">{{ home.profile.summary }}</p>
+            <div class="actions">
+              @for (cta of home.primaryCtas; track cta.route) {
+                <a
+                  [routerLink]="cta.route"
+                  class="btn"
+                  [class.primary]="cta.variant === 'primary'"
+                  [class.ghost]="cta.variant === 'ghost'"
+                >
+                  @if (cta.icon) {
+                    <app-cv-icon [name]="cta.icon" />
+                  }
+                  {{ cta.label }}
+                </a>
+              }
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -39,12 +45,16 @@
 
   @if (home.highlights.length) {
     <section class="highlights" [attr.aria-label]="home.highlightsSectionAriaLabel">
-      @for (h of home.highlights; track h.label) {
-        <article class="metric">
-          <p class="value">{{ h.value }}</p>
-          <p class="label">{{ h.label }}</p>
-        </article>
-      }
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 g-3 justify-content-center">
+        @for (h of home.highlights; track h.label) {
+          <div class="col d-flex">
+            <article class="metric w-100">
+              <p class="value">{{ h.value }}</p>
+              <p class="label">{{ h.label }}</p>
+            </article>
+          </div>
+        }
+      </div>
     </section>
   }
 </div>

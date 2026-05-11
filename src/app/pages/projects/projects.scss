@@ -1,12 +1,5 @@
 .page {
-  max-width: 56rem;
   min-width: 0;
-}
-
-.grid {
-  display: grid;
-  gap: var(--cv-space-4);
-  grid-template-columns: repeat(auto-fill, minmax(min(100%, 17rem), 1fr));
 }
 
 .card {
