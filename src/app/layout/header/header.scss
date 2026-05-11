@@ -22,6 +22,10 @@
   background: var(--cv-surface-2);
   color: var(--cv-muted);
   cursor: pointer;
+  transition:
+    color var(--cv-transition-hover),
+    border-color var(--cv-transition-hover),
+    background-color var(--cv-transition-hover);
 
   &:hover {
     color: var(--cv-text);
@@ -101,6 +105,9 @@
   gap: var(--cv-space-2);
   min-height: 2.75rem;
   color: var(--cv-muted) !important;
+  transition:
+    color var(--cv-transition-hover),
+    border-color var(--cv-transition-hover) !important;
 
   &:hover {
     color: var(--cv-text) !important;

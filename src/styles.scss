@@ -131,6 +131,9 @@ body {
   --cv-type-caption: 0.875rem;
   --cv-type-lh-tight: 1.2;
   --cv-type-lh-body: 1.65;
+
+  /* Hover/focus em links e botões (faixa ~150–250 ms; ver CHECKLIST-HOME) */
+  --cv-transition-hover: 0.2s ease;
 }
 
 /* Modo escuro: `data-theme="dark"` em `<html>` (ThemeService + script em index.html). */
@@ -190,6 +193,23 @@ main button:focus-visible:not(:disabled) {
   outline: 2px solid var(--cv-accent);
   outline-offset: 2px;
   border-radius: var(--cv-radius-sm);
+}
+
+/*
+ * Transições curtas em hover (CHECKLIST-HOME): ~200 ms, sem animar `outline` (foco visível imediato).
+ * `.shell` cobre header + main + footer (links fora de `<main>`).
+ */
+.shell a,
+.shell button:not(:disabled) {
+  transition-property: color, background-color, border-color, opacity, filter, text-decoration-color, box-shadow;
+  transition-duration: 0.2s;
+  transition-timing-function: ease;
+}
+
+.shell .mat-mdc-button-base {
+  transition-property: background-color, color, border-color, filter, box-shadow, opacity;
+  transition-duration: 0.2s;
+  transition-timing-function: ease;
 }
 
 /*

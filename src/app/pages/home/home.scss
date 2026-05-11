@@ -141,9 +141,10 @@
   border: 1px solid transparent;
   cursor: pointer;
   transition:
-    background 0.15s ease,
-    color 0.15s ease,
-    border-color 0.15s ease;
+    background var(--cv-transition-hover),
+    color var(--cv-transition-hover),
+    border-color var(--cv-transition-hover),
+    filter var(--cv-transition-hover);
 
   &.primary {
     background: var(--cv-accent);

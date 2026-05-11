@@ -13,7 +13,7 @@
   border-radius: var(--cv-radius-md);
   background: var(--cv-surface-2);
   box-shadow: var(--cv-shadow-sm);
-  transition: box-shadow 0.2s ease;
+  transition: box-shadow var(--cv-transition-hover);
 
   &:hover {
     box-shadow: var(--cv-shadow-float);
