@@ -70,17 +70,35 @@ body {
 
 :root {
   /*
-   * Contraste (WCAG 2.1 nível AA, texto normal ~16px):
-   * --cv-text / --cv-muted / --cv-accent sobre --cv-bg ou --cv-surface ≥ 4.5:1 (calculado com ferramentas online).
+   * ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   * Paleta principal (Fase 1 — `docs/CHECKLIST-LAYOUT-BONITO.md`)
+   * ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   * | Papel checklist | Token(s) principais                          |
+   * |-----------------|---------------------------------------------|
+   * | Primária        | `--cv-primary` (= `--cv-accent`), `--cv-on-primary` |
+   * | Fundo           | `--cv-bg`, `--cv-surface`, `--cv-surface-2` |
+   * | Texto           | `--cv-text`, `--cv-muted`                   |
+   * | Borda           | `--cv-border`                               |
+   * | Hover           | `--cv-accent-hover`, `--cv-link-hover`, `--cv-surface-hover` |
+   * ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   * Contraste (WCAG 2.1 AA ~16px): texto / muted / accent sobre bg ou surface — validar com ferramenta ao mudar hex.
    */
+  --cv-accent: #14496f;
+  --cv-accent-contrast: #ffffff;
+  --cv-primary: var(--cv-accent);
+  --cv-on-primary: var(--cv-accent-contrast);
+
   --cv-bg: #f6f7f9;
   --cv-surface: #ffffff;
   --cv-surface-2: #eef1f5;
   --cv-text: #141820;
   --cv-muted: #3d4654;
   --cv-border: #bcc6d4;
-  --cv-accent: #14496f;
-  --cv-accent-contrast: #ffffff;
+
+  --cv-accent-hover: color-mix(in oklab, var(--cv-accent) 78%, #080a0d);
+  --cv-link-hover: var(--cv-accent-hover);
+  --cv-surface-hover: color-mix(in oklab, var(--cv-surface) 97%, var(--cv-accent));
+
   --cv-danger-text: #8f1414;
 
   /* Tipografia: Inter (UI/corpo) + Source Serif 4 (títulos principais) — Google Fonts em index.html */
@@ -146,6 +164,11 @@ body {
   --cv-border: #3d4a5c;
   --cv-accent: #7eb8e0;
   --cv-accent-contrast: #0d1117;
+  --cv-primary: var(--cv-accent);
+  --cv-on-primary: var(--cv-accent-contrast);
+  --cv-accent-hover: color-mix(in oklab, var(--cv-accent) 82%, #f5f8fc);
+  --cv-link-hover: var(--cv-accent-hover);
+  --cv-surface-hover: color-mix(in oklab, var(--cv-surface) 94%, var(--cv-accent));
   --cv-danger-text: #ff9e9e;
 
   --cv-shadow-sm: 0 1px 2px rgb(0 0 0 / 45%);

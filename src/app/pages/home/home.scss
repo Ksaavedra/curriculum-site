@@ -147,11 +147,11 @@
     filter var(--cv-transition-hover);
 
   &.primary {
-    background: var(--cv-accent);
-    color: var(--cv-accent-contrast);
+    background: var(--cv-primary);
+    color: var(--cv-on-primary);
 
     &:hover {
-      filter: brightness(1.05);
+      background: var(--cv-accent-hover);
     }
   }
 
@@ -161,8 +161,8 @@
     border-color: var(--cv-border);
 
     &:hover {
-      border-color: var(--cv-accent);
-      color: var(--cv-accent);
+      border-color: var(--cv-link-hover);
+      color: var(--cv-link-hover);
     }
   }
 
