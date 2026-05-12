@@ -3,15 +3,22 @@
  * Antes de publicar: ajuste nome, localização, e-mail, telefone e links sociais no objeto `profile`.
  * A home consome via CvDataService — ver docs/CHECKLIST-HOME.md (Fase 2).
  *
+ * **Evolução do modelo:** prefira **campos opcionais** em [`cv.types.ts`](../models/cv.types.ts) e extensões
+ * deste objeto; evite remover ou renomear chaves usadas nos templates sem actualizar todas as referências.
+ *
  * **Assets:** ficheiros em `frontend/public/` vão para a **raiz** do *site* (`/ficheiro.ext`), conforme
- * `angular.json` → `assets` com `input: "public"`. Use URL absoluta de caminho (`/…`) em `photo.src`.
- * Para bitmaps reais, preferir **WebP** (ou AVIF) + atributos `width`/`height` e, se necessário, `srcset`/`sizes` no template.
+ * `angular.json` → `assets` com `input: "public"`.
  */
 import { appPath } from '../constants/internal-routes';
 import { CvContent } from '../models/cv.types';
 
 export const CV_DATA: CvContent = {
   heroEyebrow: 'Olá, sou',
+  heroSceneImage: {
+    src: '/img/hero-workspace.png',
+    alt:
+      'Mesa de trabalho com portátil, tablet, bloco de notas e caneca, ambiente com luz roxa — referência ao fluxo de desenvolvimento.',
+  },
   highlightsSectionAriaLabel: 'Destaques',
   primaryCtas: [
     {
@@ -21,10 +28,10 @@ export const CV_DATA: CvContent = {
       icon: 'mail',
     },
     {
-      label: 'Experiência e formação',
-      route: appPath('experiencia'),
+      label: 'Ver projetos',
+      route: appPath('projetos'),
       variant: 'ghost',
-      icon: 'briefcase',
+      icon: 'folder',
     },
   ],
   highlights: [
@@ -33,15 +40,11 @@ export const CV_DATA: CvContent = {
     { value: '1', label: 'Formação superior completa' },
   ],
   profile: {
-    name: 'Kelly',
-    photo: {
-      /** Placeholder vector em `public/profile-photo.svg` (leve, escalável). */
-      src: '/profile-photo.svg',
-      alt: 'Kelly, desenvolvedora de software especializada em Angular e Node.js',
-    },
-    headline: 'Full stack · Angular, TypeScript e APIs em Node.js',
+    name: 'Kelly Michele',
+    lastName: 'Torrico Saavedra dos Santos',
+    headline: 'Front-end Developer · Angular, TypeScript, React e APIs',
     summary:
-      'Construo e evoluo produtos web com Angular no front e Node.js no back: contratos de API claros, validação de dados, testes onde o impacto é maior e revisão de código em equipa. Valorizo segurança em REST (auth, limites, headers) e documentação que reduz dúvidas em produção.',
+      'Construo e evoluo produtos web com Angular no front e Node.js no back: contratos de API claros, validação de dados, testes onde o impacto é maior e revisão de código em equipa.',
     location: 'Brasil',
     email: 'kelly@example.com',
     phone: '+55 (11) 99999-9999',
@@ -67,9 +70,7 @@ export const CV_DATA: CvContent = {
       period: '2020 — 2023',
       description:
         'Sites institucionais e painéis administrativos em Angular; evolução de legado e novos módulos, alinhando UX, performance e acessibilidade onde o impacto era maior.',
-      highlights: [
-        'Componentes reutilizáveis e estilos consistentes (SCSS / design system leve)',
-      ],
+      highlights: ['Componentes reutilizáveis e estilos consistentes (SCSS / design system leve)'],
       tags: ['Angular', 'HTML', 'SCSS', 'Acessibilidade'],
     },
   ],

@@ -1,6 +1,8 @@
 /**
  * Segmentos de rota do SPA — única fonte para links internos e para `app.routes.ts`.
- * Ao criar uma página nova, atualize este objeto e as rotas em `app.routes.ts`.
+ * Ao criar uma página nova: (1) acrescente aqui o segmento; (2) registe em `app.routes.ts`;
+ * (3) se entrar no menu, actualize `header-nav-links.ts`; (4) actualize CTAs ou dados em `cv-data.ts`
+ * que usem `appPath(...)`. Não altere segmentos publicados sem actualizar links externos ou marcadores.
  */
 export const ROUTE_SEGMENTS = {
   home: '',

@@ -23,11 +23,13 @@
         <div class="d-flex align-items-center gap-2 ms-md-3 flex-shrink-0">
           <button
             type="button"
-            class="theme-toggle"
+            mat-icon-button
+            class="theme-toggle-btn"
             (click)="theme.cycle()"
             [attr.aria-label]="theme.ariaLabel()"
+            [attr.title]="theme.buttonLabel()"
           >
-            {{ theme.buttonLabel() }}
+            <mat-icon aria-hidden="true">{{ theme.toggleIcon() }}</mat-icon>
           </button>
         </div>
       </div>
@@ -48,11 +50,13 @@
       <span class="toolbar-spacer"></span>
       <button
         type="button"
-        class="theme-toggle theme-toggle--toolbar"
+        mat-icon-button
+        class="theme-toggle-btn"
         (click)="theme.cycle()"
         [attr.aria-label]="theme.ariaLabel()"
+        [attr.title]="theme.buttonLabel()"
       >
-        {{ theme.buttonLabel() }}
+        <mat-icon aria-hidden="true">{{ theme.toggleIcon() }}</mat-icon>
       </button>
     </mat-toolbar>
   }

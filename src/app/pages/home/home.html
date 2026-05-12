@@ -1,43 +1,70 @@
 <div class="home">
-  <section class="hero cv-section" aria-labelledby="home-title">
-    <div class="row justify-content-center">
-      <div class="col-12 col-xl-10 hero-stack">
-        <div class="row flex-column flex-md-row align-items-center justify-content-center g-4">
-          @if (home.profile.photo; as ph) {
-            <div class="col-12 col-md-auto">
-              <div class="hero-photo">
-                <img
-                  [src]="ph.src"
-                  [alt]="ph.alt"
-                  width="160"
-                  height="160"
-                  decoding="async"
-                  fetchpriority="high"
-                />
-              </div>
-            </div>
-          }
-          <div class="col hero-copy">
+  <section class="hero hero--cinematic cv-section" aria-labelledby="home-title">
+    <div class="hero-cinematic__bleed">
+      <div class="row g-4 g-xl-5 align-items-center hero-cinematic__row">
+        <div class="col-12 col-lg-6 col-xl-5">
+          <div class="hero-copy">
             <p class="eyebrow">{{ home.eyebrow }}</p>
-            <h1 id="home-title">{{ home.profile.name }}</h1>
-            <h2 class="headline">{{ home.profile.headline }}</h2>
-            <p class="summary" id="hero-summary">{{ home.profile.summary }}</p>
+            <h1 id="home-title" class="hero-name">{{ home.profile.name }}</h1>
+            <p class="hero-name__lastName">{{ home.profile.lastName }}</p>
+            <p class="headline">{{ home.profile.headline }}</p>
             <div class="actions" aria-label="Ações principais do herói" aria-describedby="hero-summary">
-              @for (cta of home.primaryCtas; track cta.route) {
-                <a
-                  [routerLink]="cta.route"
-                  class="cv-btn"
-                  [class.cv-btn--primary]="cta.variant === 'primary'"
-                  [class.cv-btn--outline]="cta.variant === 'ghost'"
-                >
-                  @if (cta.icon) {
-                    <app-cv-icon [name]="cta.icon" />
-                  }
-                  {{ cta.label }}
-                </a>
+              @if (home.resumePdfUrl) {
+              <a [href]="home.resumePdfUrl" class="cv-btn cv-btn--primary" download>
+                <app-cv-icon name="download" />
+                Baixar currículo
+              </a>
+              } @else {
+              <a [routerLink]="resumeFallbackRoute" class="cv-btn cv-btn--primary">
+                <app-cv-icon name="download" />
+                Baixar currículo
+              </a>
+              }
+              <!-- <a [routerLink]="home.primaryCtas[0].route" class="cv-btn cv-btn--outline">
+                @if (home.primaryCtas[0].icon) {
+                <app-cv-icon [name]="home.primaryCtas[0].icon!" />
+                }
+                {{ home.primaryCtas[0].label }}
+              </a> -->
+            </div>
+            <div class="hero-social" aria-label="Redes sociais">
+              @if (home.profile.linkedin) {
+              <a class="hero-social__link" [href]="home.profile.linkedin" target="_blank" rel="noopener noreferrer">
+                <app-cv-icon name="linkedin" />
+                <span class="visually-hidden">LinkedIn</span>
+              </a>
+              }
+              @if (home.profile.github) {
+              <a class="hero-social__link" [href]="home.profile.github" target="_blank" rel="noopener noreferrer">
+                <app-cv-icon name="github" />
+                <span class="visually-hidden">GitHub</span>
+              </a>
               }
             </div>
           </div>
+        </div>
+        <div class="col-12 col-lg-6 col-xl-7">
+          @if (home.heroSceneImage; as scene) {
+          <figure class="hero-scene hero-scene--photo m-0">
+            <img
+              class="hero-scene__img"
+              [src]="scene.src"
+              [alt]="scene.alt"
+              loading="eager"
+              decoding="async"
+            />
+          </figure>
+          } @else {
+          <div class="hero-scene" aria-hidden="true">
+            <div class="hero-scene__grid" aria-hidden="true"></div>
+            <div class="hero-scene__glow" aria-hidden="true"></div>
+            <div class="hero-scene__devices" aria-hidden="true">
+              <div class="hero-scene__monitor"></div>
+              <div class="hero-scene__keyboard"></div>
+              <div class="hero-scene__phone"></div>
+            </div>
+          </div>
+          }
         </div>
       </div>
     </div>
@@ -45,20 +72,20 @@
 
   <section class="highlights cv-section" [attr.aria-label]="home.highlightsSectionAriaLabel">
     @if (home.highlights.length) {
-      <div class="row row-cols-1 row-cols-sm-2 row-cols-xl-3 g-3 g-md-4 justify-content-center">
-        @for (h of home.highlights; track h.label) {
-          <div class="col d-flex">
-            <article class="cv-card metric w-100">
-              <p class="value">{{ h.value }}</p>
-              <p class="label">{{ h.label }}</p>
-            </article>
-          </div>
-        }
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-xl-3 g-3 g-md-4 justify-content-center">
+      @for (h of home.highlights; track h.label) {
+      <div class="col d-flex">
+        <article class="cv-card metric w-100">
+          <p class="value">{{ h.value }}</p>
+          <p class="label">{{ h.label }}</p>
+        </article>
       </div>
+      }
+    </div>
     } @else {
-      <p class="empty-state" role="status">
-        Ainda não há destaques para mostrar. Quando os dados estiverem disponíveis, aparecem aqui.
-      </p>
+    <p class="empty-state" role="status">
+      Ainda não há destaques para mostrar. Quando os dados estiverem disponíveis, aparecem aqui.
+    </p>
     }
   </section>
 </div>
