@@ -19,6 +19,16 @@ export interface Profile {
   photo?: ProfilePhoto;
 }
 
+export interface ExperienceSubRole {
+  /** Cargo ou função específica dentro do grupo. */
+  role: string;
+  /** Período dessa função (texto curto). */
+  period: string;
+  /** Contexto opcional (ex.: local). */
+  description?: string;
+  highlights?: string[];
+}
+
 export interface ExperienceItem {
   company: string;
   role: string;
@@ -27,6 +37,8 @@ export interface ExperienceItem {
   highlights?: string[];
   /** Tecnologias ou domínios (opcional); exibidas como tags no cartão. */
   tags?: string[];
+  /** Várias funções no mesmo grupo (ex.: Santander) — um só marcador na timeline. */
+  subRoles?: ExperienceSubRole[];
 }
 
 export interface EducationItem {

@@ -2,6 +2,30 @@
   min-width: 0;
 }
 
+.about-summary {
+  display: flex;
+  flex-direction: column;
+  gap: var(--cv-space-4);
+}
+
+.about-summary__para {
+  margin: 0;
+  font-size: var(--cv-type-body);
+  line-height: var(--cv-type-lh-body);
+  color: var(--cv-text);
+  text-align: justify;
+  hyphens: auto;
+  -webkit-hyphens: auto;
+  hyphenate-limit-chars: 6 3 3;
+  text-wrap: pretty;
+
+  &.lead {
+    font-size: var(--cv-type-subtitle);
+    line-height: var(--cv-type-lh-body);
+    color: var(--cv-muted);
+  }
+}
+
 .meta {
   margin: 0;
 

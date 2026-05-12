@@ -9,7 +9,7 @@
       </div>
       <div class="cv-section">
         <ul class="timeline" aria-label="Linha do tempo profissional">
-          @for (job of cv.content.experience; track job.company + job.period) {
+          @for (job of cv.content.experience; track job.company + job.role + job.period) {
             <li class="item">
               <div class="rail">
                 <span class="rail-marker" aria-hidden="true"></span>
@@ -20,8 +20,30 @@
                   <h2>{{ job.role }}</h2>
                   <p class="company">{{ job.company }}</p>
                 </header>
-                <p class="desc">{{ job.description }}</p>
-                @if (job.highlights?.length) {
+                @if (job.description) {
+                  <p class="desc">{{ job.description }}</p>
+                }
+                @if (job.subRoles?.length) {
+                  <div class="job-subroles">
+                    @for (sub of job.subRoles; track sub.role + sub.period) {
+                      <section class="job-subrole">
+                        <h3 class="job-subrole__title">{{ sub.role }}</h3>
+                        <p class="job-subrole__period">{{ sub.period }}</p>
+                        @if (sub.description) {
+                          <p class="job-subrole__desc">{{ sub.description }}</p>
+                        }
+                        @if (sub.highlights?.length) {
+                          <ul class="highlights job-subrole__highlights">
+                            @for (h of sub.highlights; track h) {
+                              <li>{{ h }}</li>
+                            }
+                          </ul>
+                        }
+                      </section>
+                    }
+                  </div>
+                }
+                @if (!job.subRoles?.length && job.highlights?.length) {
                   <ul class="highlights">
                     @for (h of job.highlights; track h) {
                       <li>{{ h }}</li>

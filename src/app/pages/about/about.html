@@ -3,9 +3,13 @@
     <div class="col-12 col-lg-11 col-xl-10 cv-page-col">
       <div class="cv-section">
         <h1 id="page-heading">Sobre</h1>
-        <p class="lead">{{ profile.summary }}</p>
+        <div class="about-summary">
+          @for (para of summaryParagraphs; track $index) {
+          <p class="about-summary__para" [class.lead]="$first">{{ para }}</p>
+          }
+        </div>
       </div>
-      <div class="cv-section">
+      <!-- <div class="cv-section">
         <dl class="meta cv-meta-grid row row-cols-1 row-cols-sm-2 g-4 gy-md-4" aria-label="Dados de contacto e redes">
         <div class="col">
           <dt>Local</dt>
@@ -38,7 +42,7 @@
           </div>
         }
         </dl>
-      </div>
+      </div> -->
     </div>
   </div>
 </section>
