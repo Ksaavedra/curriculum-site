@@ -37,10 +37,6 @@
   padding-inline: var(--cv-space-6);
 }
 
-/*
- * Material outline — inputs, labels, erros e :focus-visible (Fase 3 CHECKLIST-LAYOUT-BONITO).
- * `::ng-deep` necessário: conteúdo MDC projectado fora do encapsulamento do componente.
- */
 :host ::ng-deep .contact-form {
   .mat-mdc-form-field {
     width: 100%;

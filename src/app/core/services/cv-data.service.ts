@@ -8,7 +8,6 @@ export class CvDataService {
     return CV_DATA;
   }
 
-  /** Dados da rota inicial, já tipados como `HomeSection`. */
   get home(): HomeSection {
     return homeSectionFromCv(CV_DATA);
   }

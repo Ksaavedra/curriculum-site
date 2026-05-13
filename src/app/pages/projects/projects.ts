@@ -13,7 +13,6 @@ import { CvIconComponent } from '../../shared/cv-icon/cv-icon';
 export class ProjectsComponent {
   protected readonly cv = inject(CvDataService);
 
-  /** `github.com` ou páginas `*.github.io` tratadas como repositório/página GitHub. */
   protected isGitHubRepo(url: string | undefined): boolean {
     const u = url?.trim();
     if (!u) {
@@ -28,10 +27,9 @@ export class ProjectsComponent {
   }
 
   protected hasActions(p: ProjectItem): boolean {
-    return !!(p.link?.trim() || p.demoUrl?.trim());
+    return !!(p.link?.trim() || p.demoUrl?.trim() || p.status?.trim());
   }
 
-  /** Rota interna (`/…`) sem `//` — demo na mesma SPA. */
   protected isInternalRoute(url: string): boolean {
     return url.startsWith('/') && !url.startsWith('//');
   }

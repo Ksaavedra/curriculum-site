@@ -242,8 +242,32 @@
   line-height: var(--cv-type-lh-body);
   color: var(--cv-muted);
   max-width: 62ch;
+  white-space: pre-line;
+}
+
+.job-subrole__highlights-heading {
+  margin: 0 0 var(--cv-space-2);
+  font-family: var(--cv-font-sans);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  line-height: var(--cv-type-lh-tight);
+  color: var(--cv-text);
 }
 
 .job-subrole__highlights {
   margin-bottom: 0;
+}
+
+.job-subrole__highlights li+li {
+  margin-top: var(--cv-space-3);
+}
+
+.job-subrole__highlights+.job-subrole__tags {
+  margin-top: var(--cv-space-8);
+}
+
+.job-tags.job-subrole__tags {
+  gap: var(--cv-space-3);
+  row-gap: var(--cv-space-3);
 }

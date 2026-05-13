@@ -1,6 +1,3 @@
-/**
- * Rotas do SPA — cada `path` deve usar `ROUTE_SEGMENTS` (ver `core/constants/internal-routes.ts`).
- */
 import { Routes } from '@angular/router';
 import { ROUTE_SEGMENTS } from './core/constants/internal-routes';
 import { AboutComponent } from './pages/about/about';

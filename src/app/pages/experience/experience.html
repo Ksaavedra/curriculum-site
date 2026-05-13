@@ -9,60 +9,71 @@
       </div>
       <div class="cv-section">
         <ul class="timeline" aria-label="Linha do tempo profissional">
-          @for (job of cv.content.experience; track job.company + job.role + job.period) {
-            <li class="item">
-              <div class="rail">
-                <span class="rail-marker" aria-hidden="true"></span>
-                <time class="period">{{ job.period }}</time>
+          @for (job of cv.content.experience; track job.company + job.role + job.period + job.tags) {
+          <li class="item">
+            <div class="rail">
+              <span class="rail-marker" aria-hidden="true"></span>
+              <time class="period">{{ job.period }}</time>
+            </div>
+            <article class="body cv-card cv-card--timeline">
+              <header class="card-head">
+                <h2>{{ job.role }}</h2>
+                <p class="company">{{ job.company }}</p>
+              </header>
+              @if (job.description) {
+              <p class="desc">{{ job.description }}</p>
+              }
+              @if (job.subRoles?.length) {
+              <div class="job-subroles">
+                @for (sub of job.subRoles; track sub.role + sub.period) {
+                <section class="job-subrole">
+                  <h3 class="job-subrole__title">{{ sub.role }}</h3>
+                  <p class="job-subrole__period">{{ sub.period }}</p>
+                  @if (sub.description) {
+                  <p class="job-subrole__desc">{{ sub.description }}</p>
+                  }
+                  <br>
+                  @if (sub.highlights?.length) {
+                  @if (sub.highlightsHeading) {
+                  <h4 class="job-subrole__highlights-heading">{{ sub.highlightsHeading }}</h4>
+                  }
+                  <ul class="highlights job-subrole__highlights">
+                    @for (h of sub.highlights; track h) {
+                    <li>{{ h }}</li>
+                    }
+                  </ul>
+                  }
+                  @if (sub.tags?.length) {
+                  <ul class="job-tags job-subrole__tags" aria-label="Tecnologias utilizadas">
+                    @for (tag of sub.tags; track tag) {
+                    <li>{{ tag }}</li>
+                    }
+                  </ul>
+                  }
+                </section>
+                }
               </div>
-              <article class="body cv-card cv-card--timeline">
-                <header class="card-head">
-                  <h2>{{ job.role }}</h2>
-                  <p class="company">{{ job.company }}</p>
-                </header>
-                @if (job.description) {
-                  <p class="desc">{{ job.description }}</p>
+              }
+              @if (!job.subRoles?.length && job.highlights?.length) {
+              <ul class="highlights">
+                @for (h of job.highlights; track h) {
+                <li>{{ h }}</li>
                 }
-                @if (job.subRoles?.length) {
-                  <div class="job-subroles">
-                    @for (sub of job.subRoles; track sub.role + sub.period) {
-                      <section class="job-subrole">
-                        <h3 class="job-subrole__title">{{ sub.role }}</h3>
-                        <p class="job-subrole__period">{{ sub.period }}</p>
-                        @if (sub.description) {
-                          <p class="job-subrole__desc">{{ sub.description }}</p>
-                        }
-                        @if (sub.highlights?.length) {
-                          <ul class="highlights job-subrole__highlights">
-                            @for (h of sub.highlights; track h) {
-                              <li>{{ h }}</li>
-                            }
-                          </ul>
-                        }
-                      </section>
-                    }
-                  </div>
+              </ul>
+              }
+              @if (job.tags?.length) {
+              <ul class="job-tags" aria-label="Tecnologias e temas">
+                @for (tag of job.tags; track tag) {
+                <li>{{ tag }}</li>
                 }
-                @if (!job.subRoles?.length && job.highlights?.length) {
-                  <ul class="highlights">
-                    @for (h of job.highlights; track h) {
-                      <li>{{ h }}</li>
-                    }
-                  </ul>
-                }
-                @if (job.tags?.length) {
-                  <ul class="job-tags" aria-label="Tecnologias e temas">
-                    @for (tag of job.tags; track tag) {
-                      <li>{{ tag }}</li>
-                    }
-                  </ul>
-                }
-              </article>
-            </li>
+              </ul>
+              }
+            </article>
+          </li>
           } @empty {
-            <li class="timeline-empty">
-              <p class="empty-state" role="status">Nenhuma experiência listada no momento.</p>
-            </li>
+          <li class="timeline-empty">
+            <p class="empty-state" role="status">Nenhuma experiência listada no momento.</p>
+          </li>
           }
         </ul>
       </div>

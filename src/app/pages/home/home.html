@@ -1,14 +1,55 @@
 <div class="home">
-  <section class="hero hero--cinematic cv-section" aria-labelledby="home-title">
+  <section class="hero hero--cinematic cv-section" aria-labelledby="home-title" (mousemove)="onHeroPointerMove($event)"
+    (mouseleave)="onHeroPointerLeave()" [style.--hero-spot-x]="heroSpotX()" [style.--hero-spot-y]="heroSpotY()"
+    [style.transform]="heroSceneTransform()">
+    <div class="hero-cinematic__aurora" aria-hidden="true"></div>
+    <div class="hero-cinematic__grid-floor" aria-hidden="true"></div>
+    <div class="hero-cinematic__spotlight" aria-hidden="true"></div>
+    <div class="hero-cinematic__particles" aria-hidden="true">
+      @for (i of heroParticleIndices; track i) {
+      <span class="hero-cinematic__particle"></span>
+      }
+    </div>
+
+    <div class="hero-tech-field">
+      <div class="hero-tech-scene__mesh" aria-hidden="true"></div>
+      <div class="hero-tech-scene__halo" aria-hidden="true"></div>
+      <div class="hero-scene__grid" aria-hidden="true"></div>
+      <ul class="hero-tech-float" role="presentation">
+        @for (chip of heroTechChips; track chip.id) {
+        <li [class]="heroFloatMarkClass(chip)">
+          <span class="hero-tech-float__drift">
+            <span class="hero-tech-float__hit" aria-hidden="true">
+              <span class="hero-tech-float__bloom" aria-hidden="true"></span>
+              <span class="hero-tech-float__shift" [style.transform]="heroTechChipParallax(chip)">
+                <img class="hero-tech-float__icon" [src]="heroTechIconUrl(chip)" [attr.width]="heroTechIconSize(chip)"
+                  [attr.height]="heroTechIconSize(chip)" alt="" loading="lazy" decoding="async"
+                  referrerpolicy="no-referrer" />
+              </span>
+            </span>
+          </span>
+        </li>
+        }
+      </ul>
+    </div>
+
     <div class="hero-cinematic__bleed">
-      <div class="row g-4 g-xl-5 align-items-center hero-cinematic__row">
-        <div class="col-12 col-lg-6 col-xl-5">
-          <div class="hero-copy">
+      <div class="row hero-cinematic__row justify-content-center">
+        <div class="col-12 col-lg-9 col-xl-8">
+          <div class="hero-copy hero-copy--immersive">
             <p class="eyebrow">{{ home.eyebrow }}</p>
-            <h1 id="home-title" class="hero-name">{{ home.profile.name }}</h1>
-            <p class="hero-name__lastName">{{ home.profile.lastName }}</p>
+            <h1 id="home-title" class="m-0 hero-title">
+              <span class="hero-name-display">{{ heroDisplayGivenNames() }}</span>
+              @if (home.profile.lastName) {
+                <span class="hero-name-surname">{{ home.profile.lastName }}</span>
+              }
+            </h1>
             <p class="headline">{{ home.profile.headline }}</p>
-            <div class="actions" aria-label="Ações principais do herói" aria-describedby="hero-summary">
+            @if (heroSummaryLead(); as lead) {
+            <p id="hero-summary" class="hero-lead">{{ lead }}</p>
+            }
+            <div class="actions" aria-label="Ações principais do herói"
+              [attr.aria-describedby]="heroSummaryLead() ? 'hero-summary' : null">
               @if (home.resumePdfUrl) {
               <a [href]="home.resumePdfUrl" class="cv-btn cv-btn--primary" download>
                 <app-cv-icon name="download" />
@@ -20,12 +61,6 @@
                 Baixar currículo
               </a>
               }
-              <!-- <a [routerLink]="home.primaryCtas[0].route" class="cv-btn cv-btn--outline">
-                @if (home.primaryCtas[0].icon) {
-                <app-cv-icon [name]="home.primaryCtas[0].icon!" />
-                }
-                {{ home.primaryCtas[0].label }}
-              </a> -->
             </div>
             <div class="hero-social" aria-label="Redes sociais">
               @if (home.profile.linkedin) {
@@ -42,29 +77,6 @@
               }
             </div>
           </div>
-        </div>
-        <div class="col-12 col-lg-6 col-xl-7">
-          @if (home.heroSceneImage; as scene) {
-          <figure class="hero-scene hero-scene--photo m-0">
-            <img
-              class="hero-scene__img"
-              [src]="scene.src"
-              [alt]="scene.alt"
-              loading="eager"
-              decoding="async"
-            />
-          </figure>
-          } @else {
-          <div class="hero-scene" aria-hidden="true">
-            <div class="hero-scene__grid" aria-hidden="true"></div>
-            <div class="hero-scene__glow" aria-hidden="true"></div>
-            <div class="hero-scene__devices" aria-hidden="true">
-              <div class="hero-scene__monitor"></div>
-              <div class="hero-scene__keyboard"></div>
-              <div class="hero-scene__phone"></div>
-            </div>
-          </div>
-          }
         </div>
       </div>
     </div>

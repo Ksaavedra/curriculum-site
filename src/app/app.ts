@@ -40,7 +40,6 @@ export class App implements AfterViewInit {
   protected readonly year = new Date().getFullYear();
   protected readonly navLinks = HEADER_NAV_LINKS;
 
-  /** Sincroniza `aria-expanded` no botão menu do header. */
   protected readonly mobileDrawerOpen = signal(false);
 
   @ViewChild('navDrawer') private navDrawer?: MatSidenav;
@@ -52,7 +51,6 @@ export class App implements AfterViewInit {
     this.mobileDrawerOpen.set(opened);
   }
 
-  /** Garante `aria-expanded` alinhado ao estado real após `toggle()` (Promise do Material). */
   protected onMobileNavToggle(): void {
     const d = this.navDrawer;
     if (!d) {

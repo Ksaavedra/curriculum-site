@@ -142,6 +142,20 @@
   color: var(--cv-accent);
 }
 
+.project-actions .status {
+  display: inline-flex;
+  align-items: center;
+  margin-inline-start: auto;
+  padding: var(--cv-space-1) var(--cv-space-2);
+  border-radius: var(--cv-radius-pill);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: var(--cv-muted);
+  background: color-mix(in oklab, var(--cv-surface-2) 70%, var(--cv-border));
+  border: 1px solid color-mix(in oklab, var(--cv-border) 85%, transparent);
+}
+
 @media (max-width: 575.98px) {
   .project-actions {
     flex-direction: column;
@@ -149,6 +163,11 @@
 
     .link {
       justify-content: center;
+    }
+
+    .status {
+      margin-inline-start: 0;
+      align-self: flex-start;
     }
   }
 }

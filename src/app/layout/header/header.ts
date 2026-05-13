@@ -7,7 +7,6 @@ import { HEADER_NAV_LINKS } from '../../core/constants/header-nav-links';
 import { ThemeService } from '../../core/services/theme.service';
 import { CvIconComponent } from '../../shared/cv-icon/cv-icon';
 
-/** Breakpoint `md` do Bootstrap 5 (navbar-expand-md). */
 const MD_MIN_PX = 768;
 
 @Component({
@@ -26,10 +25,8 @@ const MD_MIN_PX = 768;
 export class HeaderComponent implements OnInit {
   protected readonly theme = inject(ThemeService);
 
-  /** Estado do `mat-sidenav` mobile (para `aria-expanded` no botão menu). */
   readonly drawerOpened = input(false);
 
-  /** Alterna a gaveta lateral (emitido para o `App` chamar `MatSidenav.toggle()`). */
   readonly toggleMobileNav = output<void>();
 
   readonly links = HEADER_NAV_LINKS;

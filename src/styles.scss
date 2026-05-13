@@ -1,13 +1,8 @@
-/*
- * Angular Material 3 — `theme-type: dark` nos `mat-*` (componentes M3);
- * cores de página vêm dos tokens `--cv-*` (claro em `:root`, roxo em `data-theme='dark'`).
- */
 @use '@angular/material'as mat;
 
 html {
   height: 100%;
   scroll-behavior: smooth;
-  /* `color-scheme` efectivo: `index.html` + `ThemeService` (claro / escuro). */
   color-scheme: light dark;
 
   @include mat.theme((color: (theme-type: dark,
@@ -21,14 +16,10 @@ html {
     ));
 }
 
-/*
- * Bootstrap 5 (parcial): grelha, contentores, utilitários e variáveis CSS --bs-*.
- * Sem reboot, tipografia nem componentes — evita choque com tokens `--cv-*` e o corpo já definido abaixo.
- * Ordem conforme https://getbootstrap.com/docs/5.3/customize/sass/#importing
- */
+
 @import 'bootstrap/scss/functions';
 
-/* Aproximar utilitários / variáveis `--bs-primary-*` ao roxo vivo do site. */
+
 $primary: #9b72f0;
 
 @import 'bootstrap/scss/variables';
@@ -63,17 +54,14 @@ body {
   text-size-adjust: 100%;
 }
 
-/* Contentor Material da app: alinhado ao fundo do corpo (`--cv-bg`). */
+
 .mat-drawer-container.app-root-drawer {
   background-color: var(--cv-bg);
   color: var(--cv-text);
 }
 
 :root {
-  /*
-   * Tema claro (padrão): fundo branco / cinza claro, texto escuro, acento roxo nos botões e links.
-   * Tema escuro (`data-theme='dark'`): paleta roxa noite — ver bloco abaixo.
-   */
+  
   --cv-accent: #6d4ad6;
   --cv-accent-contrast: #ffffff;
   --cv-primary: var(--cv-accent);
@@ -82,22 +70,18 @@ body {
   --cv-bg: #fafafa;
   --cv-surface: #ffffff;
   --cv-surface-2: #f0f0f4;
-  --cv-main-bg: linear-gradient(
-    180deg,
-    #ffffff 0%,
-    #f7f7f9 52%,
-    #ececf0 100%
-  );
+  --cv-main-bg: linear-gradient(180deg,
+      #ffffff 0%,
+      #f7f7f9 52%,
+      #ececf0 100%);
 
   --cv-page-hero-bg-a: #fbfbfd;
   --cv-page-hero-bg-b: #f2f2f6;
   --cv-page-hero-bg-c: #e8e8ee;
-  --cv-page-section-bg: linear-gradient(
-    155deg,
-    #ffffff 0%,
-    #f4f4f8 48%,
-    #eaeaf0 100%
-  );
+  --cv-page-section-bg: linear-gradient(155deg,
+      #ffffff 0%,
+      #f4f4f8 48%,
+      #eaeaf0 100%);
 
   --cv-text: #1a1826;
   --cv-muted: #5e5a68;
@@ -109,14 +93,11 @@ body {
 
   --cv-danger-text: #b42318;
 
-  /* Tipografia: Elms Sans (corpo + títulos) — Google Fonts em index.html */
+  
   --cv-font-sans: 'Elms Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
   --cv-font-serif: 'Elms Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
 
-  /*
-   * Espaçamento: múltiplos de 4px (base 16px → rem).
-   * 1=4px … 16=64px. Usar estes tokens em padding/gap/margin dos componentes.
-   */
+  
   --cv-space-0: 0;
   --cv-space-1: 0.25rem;
   --cv-space-2: 0.5rem;
@@ -130,31 +111,21 @@ body {
   --cv-space-12: 3rem;
   --cv-space-16: 4rem;
 
-  /*
-   * Ritmo vertical entre secções (`.cv-section` irmãs) e respiro interno — Fase 2, CHECKLIST-LAYOUT-BONITO.
-   * Valores moderados: evita vão grande entre título/lead e conteúdo (ex.: Formação).
-   */
+  
   --cv-section-y: clamp(var(--cv-space-6), 3vw, var(--cv-space-10));
   --cv-section-inner-gap: var(--cv-space-3);
   --cv-page-row-gap: var(--cv-space-5);
 
-  /*
-   * Raios: dois níveis + pill (tags). Evita misturar 4px, 6px, 8px, 10px ao calhas.
-   */
+  
   --cv-radius-sm: 6px;
   --cv-radius-md: 10px;
   --cv-radius-pill: 999px;
 
-  /*
-   * Sombras: dois níveis só — sm (repouso: cards, foto) e float (elevação leve).
-   * Valores discretos; modo escuro repõe sombras em `:root[data-theme='dark']`.
-   */
+  
   --cv-shadow-sm: 0 1px 3px rgb(24 18 40 / 8%);
   --cv-shadow-float: 0 6px 22px rgb(24 18 40 / 12%);
 
-  /*
-   * Cartões (Fase 3 — CHECKLIST-LAYOUT-BONITO): fundo, bordo suave, sombra, padding e gap interno.
-   */
+  
   --cv-card-bg: #ffffff;
   --cv-card-border: color-mix(in oklab, var(--cv-border) 78%, #c8c8d4);
   --cv-card-padding: var(--cv-space-6);
@@ -162,12 +133,12 @@ body {
   --cv-card-shadow: var(--cv-shadow-sm);
   --cv-card-shadow-hover: var(--cv-shadow-float);
 
-  /* Herói (home): mesh + cena — claro = cinzas suaves; escuro repõe roxo no bloco `dark`. */
+  
   --cv-hero-mesh-a: 6%;
   --cv-hero-mesh-b: 4%;
   --cv-hero-mesh-c: 9%;
 
-  /* Herói cinema: texto e botões sobre o cartão (sobrepostos em `home.scss`). */
+  
   --cv-hero-fg: var(--cv-text);
   --cv-hero-muted: color-mix(in oklab, var(--cv-text) 48%, var(--cv-muted));
   --cv-hero-line: color-mix(in oklab, var(--cv-accent) 22%, var(--cv-border));
@@ -182,7 +153,7 @@ body {
   --cv-hero-scene-edge: #cbcbd6;
   --cv-hero-on-primary: #ffffff;
 
-  /* Hierarquia: título de página > subtítulo/lead > corpo */
+  
   --cv-type-page-title: clamp(1.65rem, 3vw, 1.95rem);
   --cv-type-hero-title: clamp(2rem, 5vw, 2.85rem);
   --cv-type-subtitle: 1.125rem;
@@ -191,23 +162,21 @@ body {
   --cv-type-lh-tight: 1.2;
   --cv-type-lh-body: 1.65;
 
-  /* Hover/focus em links e botões (faixa ~150–250 ms; ver CHECKLIST-HOME) */
+  
   --cv-transition-hover: 0.2s ease;
-  /* Cartões / elevação: curva ligeiramente mais suave que o hover genérico (Fase 8). */
+  
   --cv-transition-card: 0.24s cubic-bezier(0.33, 1, 0.68, 1);
   --cv-page-enter-duration: 0.42s;
 
-  /* Alvo mínimo de toque (~44 px a 16px) — botões, Fase 3 CHECKLIST-LAYOUT-BONITO */
+  
   --cv-touch-target-min: 2.75rem;
 
-  /*
-   * Sidenav Material: fundo e texto seguem `--cv-*` (claro ou escuro).
-   */
+  
   --mat-sidenav-content-background-color: var(--cv-bg);
   --mat-sidenav-content-text-color: var(--cv-text);
 }
 
-/* Tema claro: ícones da barra (M3 com `theme-type: dark` tende a ícones claros). */
+
 :root[data-theme='light'] .shell .header .mat-mdc-icon-button,
 :root[data-theme='light'] .shell .header-mobile-toolbar .mat-mdc-icon-button {
   color: var(--cv-muted);
@@ -218,7 +187,7 @@ body {
   color: inherit;
 }
 
-/* Modo escuro: roxo noite (corpo, cartões, herói e secções internas). */
+
 :root[data-theme='dark'] {
   --cv-bg: #080510;
   --cv-surface: #080510;
@@ -248,12 +217,10 @@ body {
   --cv-page-hero-bg-a: #26163c;
   --cv-page-hero-bg-b: #100818;
   --cv-page-hero-bg-c: #06040a;
-  --cv-page-section-bg: linear-gradient(
-    155deg,
-    color-mix(in oklab, var(--cv-page-hero-bg-a) 88%, #6b4a9e) 0%,
-    var(--cv-page-hero-bg-b) 42%,
-    var(--cv-page-hero-bg-c) 100%
-  );
+  --cv-page-section-bg: linear-gradient(155deg,
+      color-mix(in oklab, var(--cv-page-hero-bg-a) 88%, #6b4a9e) 0%,
+      var(--cv-page-hero-bg-b) 42%,
+      var(--cv-page-hero-bg-c) 100%);
 
   --cv-hero-mesh-a: 4%;
   --cv-hero-mesh-b: 3%;
@@ -283,9 +250,7 @@ main#conteudo-principal.main {
   background: transparent;
 }
 
-/*
- * Páginas internas: h1 > lead > corpo; alinhamento ao início (LTR) e grelha com respiro vertical estável.
- */
+
 .shell section.page {
   min-width: 0;
   text-align: start;
@@ -309,11 +274,7 @@ main#conteudo-principal.main {
   gap: var(--cv-section-inner-gap);
 }
 
-/*
- * Páginas internas — padrão grid/flex (CHECKLIST-LAYOUT-BONITO Fase 2):
- * `.cv-page-col` na coluna Bootstrap principal; `--narrow` em formulários curtos.
- * `.cv-card-grid` na `row` que lista cartões: cada `.col*` vira flex para `card` com `h-100` alinhar alturas.
- */
+
 .shell section.page .cv-page-col {
   min-width: 0;
 }
@@ -349,19 +310,14 @@ main#conteudo-principal.main {
   }
 }
 
-/*
- * Entrada suave do conteúdo (router dentro do contentor). Respeita `prefers-reduced-motion`.
- */
+
 @media (prefers-reduced-motion: no-preference) {
   .shell .main>.container {
     animation: cv-page-fade-in var(--cv-page-enter-duration) cubic-bezier(0.22, 1, 0.36, 1) both;
   }
 }
 
-/*
- * Superfície de cartão reutilizável (métricas da home, formação, projetos, timeline experiência).
- * Hover: sombra, bordo, fundo ligeiro e elevação só com rato/precisão (evita “sticky hover” em toque).
- */
+
 .shell .cv-card {
   box-sizing: border-box;
   display: flex;
@@ -420,9 +376,7 @@ section.page .lead {
   color: var(--cv-muted);
 }
 
-/*
- * Listas vazias (ex.: conteúdo futuro via API) — mensagem legível, alinhada aos tokens do site.
- */
+
 .shell .empty-state {
   margin: 0;
   max-width: 36rem;
@@ -445,18 +399,12 @@ section.page .lead {
   background: color-mix(in oklab, var(--cv-surface-2) 92%, var(--cv-accent));
 }
 
-/*
- * Secções de conteúdo: margem vertical consistente entre blocos irmãos (`.cv-section` + `.cv-section`).
- * O primeiro bloco não recebe margem extra por cima; ajuste `--cv-section-y` em `:root` para o ritmo global.
- */
+
 .shell .cv-section+.cv-section {
   margin-top: var(--cv-section-y);
 }
 
-/*
- * Botões reutilizáveis (Fase 3 — CHECKLIST-LAYOUT-BONITO): base, primário, outline, hover, :focus-visible, toque.
- * Uso: `<a class="cv-btn cv-btn--primary" routerLink="...">` ou `<button type="button" class="cv-btn cv-btn--outline">`.
- */
+
 .shell a.cv-btn,
 .shell button.cv-btn {
   box-sizing: border-box;
@@ -530,10 +478,7 @@ section.page .lead {
   outline-offset: 2px;
 }
 
-/*
- * Fase 7 — tablet, mobile, grelha, toque (CHECKLIST-LAYOUT-BONITO):
- * gutters do contentor, ritmo entre linhas da página, padding dos cartões em ecrã estreito.
- */
+
 @media (max-width: 575.98px) {
   :root {
     --cv-page-row-gap: var(--cv-space-4);
@@ -553,7 +498,7 @@ section.page .lead {
   }
 }
 
-/* Gaveta mobile: alvos de toque consistentes com o resto do site. */
+
 .shell .mobile-nav-drawer .mat-mdc-list-item {
   min-height: var(--cv-touch-target-min);
 }
@@ -579,17 +524,12 @@ section.page .lead {
   }
 }
 
-/*
- * Navegação por teclado (WCAG 2.4.7 Focus Visible): anel só com :focus-visible,
- * para não duplicar indicador no clique do rato.
- */
+
 :focus:not(:focus-visible) {
   outline: none;
 }
 
-/*
- * Foco visível: cabeçalho, rodapé e `<main>` (links fora de `main` herdavam estilo inconsistente).
- */
+
 .shell main a:focus-visible,
 .shell .header a:focus-visible,
 .shell .footer a:focus-visible {
@@ -607,7 +547,7 @@ section.page .lead {
   border-radius: var(--cv-radius-sm);
 }
 
-/* Saltar para o conteúdo (Fase 9 — teclado): só visível com :focus-visible. */
+
 .cv-skip-link {
   position: absolute;
   left: -9999px;
@@ -638,10 +578,7 @@ section.page .lead {
   outline-offset: 2px;
 }
 
-/*
- * Transições curtas em hover (CHECKLIST-HOME): ~200 ms, sem animar `outline` (foco visível imediato).
- * `.shell` cobre header + main + footer (links fora de `<main>`).
- */
+
 .shell a,
 .shell button:not(:disabled) {
   transition-property: color, background-color, border-color, opacity, filter, text-decoration-color, box-shadow;
@@ -655,8 +592,4 @@ section.page .lead {
   transition-timing-function: ease;
 }
 
-/*
- * ng-bootstrap: não repetir `bootstrap/scss/bootstrap` aqui — já há import parcial no topo
- * (CHECKLIST-HOME: reduzir CSS). Ao usar componentes Ngb*, importar os SCSS necessários
- * ou expandir o bloco parcial se faltar estilo.
- */
+

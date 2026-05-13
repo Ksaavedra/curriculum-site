@@ -8,7 +8,6 @@ export interface HeaderNavLink {
   icon: CvIconName;
 }
 
-/** Links do header e do `mat-sidenav` mobile (mesma ordem). */
 export const HEADER_NAV_LINKS: HeaderNavLink[] = [
   { path: appPath('home'), label: 'Início', exact: true, icon: 'home' },
   { path: appPath('sobre'), label: 'Sobre', exact: false, icon: 'user' },

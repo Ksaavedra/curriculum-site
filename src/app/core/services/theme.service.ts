@@ -10,10 +10,8 @@ export class ThemeService {
   private readonly document = inject(DOCUMENT);
   private readonly platformId = inject(PLATFORM_ID);
 
-  /** Preferência efectiva: claro ou escuro (persistida em `localStorage` após a primeira escolha). */
   readonly preference = signal<ThemePreference>('light');
 
-  /** `true` se o utilizador ainda não gravou escolha — segue `prefers-color-scheme` até alternar. */
   private followingSystem = false;
 
   private systemSchemeListener: ((e: MediaQueryListEvent) => void) | null = null;
@@ -42,14 +40,12 @@ export class ThemeService {
     return this.preference();
   }
 
-  /** Actualiza `data-theme` em `<html>` para os tokens `--cv-*` e o tema Material em `styles.scss`. */
   applyEffectiveTheme(): void {
     if (!isPlatformBrowser(this.platformId)) {
       return;
     }
     const t = this.effectiveTheme();
     this.document.documentElement.setAttribute('data-theme', t);
-    /* Inputs nativos e scrollbars alinhados ao tema activo. */
     this.document.documentElement.style.colorScheme = t === 'dark' ? 'dark' : 'light';
   }
 
@@ -61,23 +57,19 @@ export class ThemeService {
     this.applyEffectiveTheme();
   }
 
-  /** Alterna entre claro e escuro (grava a escolha em `localStorage`). */
   cycle(): void {
     const next: ThemePreference = this.preference() === 'light' ? 'dark' : 'light';
     this.setPreference(next);
   }
 
-  /** Ícone Material: mostra o modo para o qual o clique alterna (lua → escuro, sol → claro). */
   toggleIcon(): 'dark_mode' | 'light_mode' {
     return this.preference() === 'light' ? 'dark_mode' : 'light_mode';
   }
 
-  /** Texto curto no botão (modo actual). */
   buttonLabel(): string {
     return this.preference() === 'light' ? 'Claro' : 'Escuro';
   }
 
-  /** Rótulo acessível: indica o modo actual e o que acontece ao clicar. */
   ariaLabel(): string {
     return this.preference() === 'light'
       ? 'Tema claro activo. Clicar para mudar para tema escuro.'
