@@ -1,14 +1,14 @@
 # Dependencies
-/node_modules
-
-# Build
-/dist
-/tmp
-/out-tsc
-/bazel-out
+node_modules/
 
 # Angular
-/.angular/cache
+.angular/
+
+# Build
+dist/
+tmp/
+out-tsc/
+bazel-out/
 
 # Environment
 .env
@@ -20,7 +20,35 @@ yarn-debug.log*
 yarn-error.log*
 
 # Coverage
-/coverage
+coverage/
+
+# Playwright
+playwright-report/
+test-results/
+blob-report/
+e2e-output/
+
+# Cache
+.sass-cache/
+.cache/
+
+# Misc
+connect.lock
+libpeerconnection.log
+testem.log
+typings/
+__screenshots__/
+
+# TypeScript
+*.tsbuildinfo
+
+# VSCode
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+!.vscode/mcp.json
 
 # IDEs
 .idea/
@@ -31,34 +59,11 @@ yarn-error.log*
 .settings/
 *.sublime-workspace
 
-# VSCode
-.vscode/*
-!.vscode/settings.json
-!.vscode/tasks.json
-!.vscode/launch.json
-!.vscode/extensions.json
-!.vscode/mcp.json
-
-# Cache
-.sass-cache/
-.cache/
-
-# Playwright
-/playwright-report/
-/test-results/
-/blob-report/
-/e2e-output/
-
-# Misc
-/connect.lock
-/libpeerconnection.log
-testem.log
-/typings
-__screenshots__/
-
-# TypeScript
-*.tsbuildinfo
+# Deploy
+.vercel
+.netlify
 
 # System
 .DS_Store
 Thumbs.db
+Desktop.ini
