@@ -1,17 +1,38 @@
-# See https://docs.github.com/get-started/getting-started-with-git/ignoring-files for more about ignoring files.
+# See https://docs.github.com/get-started/getting-started-with-git/ignoring-files
 
-# Compiled output
+# =========================
+# Build / Angular
+# =========================
 /dist
+/frontend/dist
+/backend/dist
 /tmp
 /out-tsc
 /bazel-out
+/.angular/cache
 
+# =========================
+# Secrets
+# =========================
+.env
+.env.local
+
+# Permitir exemplo
+!.env.example
+
+# =========================
 # Node
-/node_modules
+# =========================
+node_modules/
+backend/node_modules/
+frontend/node_modules/
+
 npm-debug.log
 yarn-error.log
 
-# IDEs and editors
+# =========================
+# IDEs / Editors
+# =========================
 .idea/
 .project
 .classpath
@@ -20,25 +41,42 @@ yarn-error.log
 .settings/
 *.sublime-workspace
 
-# Visual Studio Code
+# VSCode
 .vscode/*
 !.vscode/settings.json
 !.vscode/tasks.json
 !.vscode/launch.json
 !.vscode/extensions.json
 !.vscode/mcp.json
+
 .history/*
 
-# Miscellaneous
-/.angular/cache
+# =========================
+# Tests / Coverage
+# =========================
+/coverage
+__screenshots__/
+e2e-output/
+
+# =========================
+# Misc
+# =========================
 .sass-cache/
 /connect.lock
-/coverage
 /libpeerconnection.log
 testem.log
 /typings
-__screenshots__/
 
+# Logs
+*.log
+
+# Vercel / Netlify
+.vercel
+.netlify
+
+# =========================
 # System files
+# =========================
 .DS_Store
 Thumbs.db
+Desktop.ini
