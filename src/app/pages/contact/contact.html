@@ -1,0 +1,65 @@
+<section class="page" aria-labelledby="page-heading">
+  <div class="row justify-content-center">
+    <div class="col-12 col-md-8 col-lg-7 col-xl-6 cv-page-col cv-page-col--narrow">
+      <div class="cv-section">
+        <h1 id="page-heading">Contato</h1>
+        <p class="lead">Envie uma mensagem — retorno o quanto antes possível.</p>
+      </div>
+
+      <div class="cv-section">
+        @if (success()) {
+          <p class="banner ok" role="status">Mensagem enviada com sucesso.</p>
+          <div class="contact-again" aria-live="polite">
+            <p class="contact-again__text">Quer enviar mais uma mensagem de contacto?</p>
+            <button mat-stroked-button type="button" color="primary" (click)="startNewMessage()">
+              Nova mensagem
+            </button>
+          </div>
+        } @else {
+          @if (errorMsg(); as err) {
+            <p class="banner err" role="alert">{{ err }}</p>
+          }
+
+          <form
+            [formGroup]="form"
+            (ngSubmit)="submit()"
+            class="contact-form"
+            novalidate
+            aria-label="Formulário de contacto"
+          >
+            <mat-form-field appearance="outline" class="w-100" subscriptSizing="dynamic">
+              <mat-label>Nome para contacto</mat-label>
+              <input matInput id="contact-name" formControlName="name" autocomplete="name" />
+              <mat-error>{{ fieldError('name') }}</mat-error>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" class="w-100" subscriptSizing="dynamic">
+              <mat-label>E-mail</mat-label>
+              <input
+                matInput
+                id="contact-email"
+                type="email"
+                formControlName="email"
+                autocomplete="email"
+                inputmode="email"
+              />
+              <mat-hint>Usamos só para responder a esta mensagem.</mat-hint>
+              <mat-error>{{ fieldError('email') }}</mat-error>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" class="w-100" subscriptSizing="dynamic">
+              <mat-label>Mensagem</mat-label>
+              <textarea matInput id="contact-message" formControlName="message" rows="6"></textarea>
+              <mat-hint>Mínimo de 10 caracteres; até 4000.</mat-hint>
+              <mat-error>{{ fieldError('message') }}</mat-error>
+            </mat-form-field>
+
+            <button mat-flat-button color="primary" type="submit" [disabled]="submitting()">
+              {{ submitting() ? 'Enviando…' : 'Enviar' }}
+            </button>
+          </form>
+        }
+      </div>
+    </div>
+  </div>
+</section>

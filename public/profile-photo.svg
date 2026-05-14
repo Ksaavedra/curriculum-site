@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="320" height="320" viewBox="0 0 320 320" aria-hidden="true">
+  <circle cx="160" cy="160" r="160" fill="#e8ecf2"/>
+  <circle cx="160" cy="160" r="156" fill="#f6f7f9" stroke="#d8dde4" stroke-width="2"/>
+  <text x="160" y="196" text-anchor="middle" font-family="Segoe UI,system-ui,sans-serif" font-size="120" fill="#14496f" font-weight="600">K</text>
+</svg>
