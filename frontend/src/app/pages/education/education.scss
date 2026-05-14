@@ -1,0 +1,36 @@
+.page {
+  min-width: 0;
+}
+
+.list {
+  padding: 0;
+}
+
+.period {
+  font-size: 0.85rem;
+  color: var(--cv-muted);
+  margin: 0 0 var(--cv-space-2);
+}
+
+.cv-card h2 {
+  margin: 0 0 var(--cv-space-2);
+  font-size: 1.1rem;
+  font-weight: 600;
+  line-height: var(--cv-type-lh-tight);
+  color: var(--cv-text);
+}
+
+.inst {
+  margin: 0;
+  color: var(--cv-accent);
+  font-size: var(--cv-type-caption);
+  font-weight: 500;
+}
+
+.details {
+  margin: var(--cv-space-3) 0 0;
+  font-size: var(--cv-type-body);
+  font-weight: 400;
+  line-height: var(--cv-type-lh-body);
+  color: var(--cv-muted);
+}

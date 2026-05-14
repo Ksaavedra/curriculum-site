@@ -1,0 +1,64 @@
+# Dependencies
+/node_modules
+
+# Build
+/dist
+/tmp
+/out-tsc
+/bazel-out
+
+# Angular
+/.angular/cache
+
+# Environment
+.env
+.env.*
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Coverage
+/coverage
+
+# IDEs
+.idea/
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+*.sublime-workspace
+
+# VSCode
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+!.vscode/mcp.json
+
+# Cache
+.sass-cache/
+.cache/
+
+# Playwright
+/playwright-report/
+/test-results/
+/blob-report/
+/e2e-output/
+
+# Misc
+/connect.lock
+/libpeerconnection.log
+testem.log
+/typings
+__screenshots__/
+
+# TypeScript
+*.tsbuildinfo
+
+# System
+.DS_Store
+Thumbs.db

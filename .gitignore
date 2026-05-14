@@ -1,0 +1,11 @@
+# Vercel / Netlify
+.vercel
+.netlify
+
+# Docs locais
+docs/
+
+# System files
+.DS_Store
+Thumbs.db
+Desktop.ini

@@ -1,0 +1,111 @@
+.header-navbar {
+  padding: 0;
+}
+
+.header-navbar-inner {
+  padding: 0;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  row-gap: var(--cv-space-2);
+  justify-content: space-between;
+}
+
+.theme-toggle-btn {
+  color: var(--cv-muted);
+
+  &:hover {
+    color: var(--cv-text);
+  }
+}
+
+.header-mobile-toolbar {
+  background: var(--cv-bg);
+  color: var(--cv-text);
+  border-bottom: 1px solid var(--cv-border);
+  padding-left: max(0px, env(safe-area-inset-left, 0px));
+  padding-right: max(0px, env(safe-area-inset-right, 0px));
+
+  button.mat-mdc-icon-button {
+    width: var(--cv-touch-target-min);
+    height: var(--cv-touch-target-min);
+    padding: 0;
+  }
+}
+
+.toolbar-spacer {
+  flex: 1 1 auto;
+}
+
+.toolbar-brand {
+  margin-left: var(--cv-space-2);
+  text-decoration: none;
+}
+
+.header {
+  padding-top: max(var(--cv-space-3), env(safe-area-inset-top, 0px));
+  padding-bottom: var(--cv-space-3);
+  padding-left: max(clamp(var(--cv-space-3), 4vw, var(--cv-space-5)), env(safe-area-inset-left, 0px));
+  padding-right: max(clamp(var(--cv-space-3), 4vw, var(--cv-space-5)), env(safe-area-inset-right, 0px));
+  border-bottom: 1px solid var(--cv-border);
+  background: var(--cv-bg);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.brand {
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: var(--cv-text);
+  text-decoration: none;
+
+  &:hover {
+    color: var(--cv-accent);
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--cv-accent);
+    outline-offset: 2px;
+    border-radius: var(--cv-radius-sm);
+  }
+}
+
+.header-nav-list {
+  row-gap: var(--cv-space-1);
+  column-gap: var(--cv-space-2);
+}
+
+.header-nav-list {
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.header-nav-link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--cv-space-2);
+  min-height: 2.75rem;
+  color: var(--cv-muted) !important;
+  transition:
+    color var(--cv-transition-hover),
+    border-color var(--cv-transition-hover) !important;
+
+  &:hover {
+    color: var(--cv-text) !important;
+  }
+
+  &.active {
+    color: var(--cv-accent) !important;
+    font-weight: 500;
+    border-bottom: 2px solid var(--cv-accent);
+    padding-bottom: calc(0.5rem - 2px);
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--cv-accent);
+    outline-offset: 2px;
+    border-radius: var(--cv-radius-sm);
+  }
+}
