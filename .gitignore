@@ -11,6 +11,10 @@
 npm-debug.log
 yarn-error.log
 
+# Environment
+.env
+.env.*
+
 # IDEs and editors
 .idea/
 .project
@@ -46,6 +50,9 @@ __screenshots__/
 
 # Capturas geradas por `npm run screenshots:pr` (anexar ao PR manualmente)
 /e2e-output/
+
+# TypeScript
+*.tsbuildinfo
 
 # System files
 .DS_Store
