@@ -38,7 +38,7 @@ export const CV_DATA: CvContent = {
     email: 'kellymichelesaavedra@gmail.com',
     phone: '+55 (11) 96365-5403',
     linkedin: 'https://www.linkedin.com/in/kellysaavedra/',
-    github: 'https://github.com/kelly-dev',
+    github: 'https://github.com/Ksaavedra',
   },
   experience: [
     {
@@ -300,7 +300,7 @@ export const CV_DATA: CvContent = {
         'SPA em Angular com API Express para formulário de contato, CORS e envio por e-mail opcional.',
       tech: ['Angular', 'TypeScript', 'Express', 'REST'],
       thumb: '/project-thumb-curriculum.svg',
-      link: 'https://github.com/kelly-dev/curriculum-site',
+      link: 'https://github.com/Ksaavedra/curriculum-site',
       demoUrl: '/',
     },
     {

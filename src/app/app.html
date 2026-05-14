@@ -1,29 +1,16 @@
 <mat-sidenav-container class="app-root-drawer">
   <a href="#conteudo-principal" class="cv-skip-link">Saltar para o conteúdo</a>
-  <mat-sidenav
-    #navDrawer="matSidenav"
-    id="mobile-nav-panel"
-    class="mobile-nav-drawer"
-    mode="over"
-    position="start"
-    aria-label="Navegação em menu lateral para ecrãs pequenos"
-    [fixedInViewport]="true"
-    [autoFocus]="false"
-    (openedChange)="onMobileDrawerOpened($event)"
-  >
+  <mat-sidenav #navDrawer="matSidenav" id="mobile-nav-panel" class="mobile-nav-drawer" mode="over" position="start"
+    aria-label="Navegação em menu lateral para ecrãs pequenos" [fixedInViewport]="true" [autoFocus]="false"
+    (openedChange)="onMobileDrawerOpened($event)">
     <nav class="mobile-sidenav-nav" aria-label="Principal">
       <mat-nav-list>
         @for (link of navLinks; track link.path) {
-          <a
-            mat-list-item
-            [routerLink]="link.path"
-            routerLinkActive="mobile-nav-active"
-            [routerLinkActiveOptions]="{ exact: link.exact }"
-            (click)="navDrawer.close()"
-          >
-            <app-cv-icon [name]="link.icon" />
-            <span class="mobile-nav-label">{{ link.label }}</span>
-          </a>
+        <a mat-list-item [routerLink]="link.path" routerLinkActive="mobile-nav-active"
+          [routerLinkActiveOptions]="{ exact: link.exact }" (click)="navDrawer.close()">
+          <app-cv-icon [name]="link.icon" />
+          <span class="mobile-nav-label">{{ link.label }}</span>
+        </a>
         }
       </mat-nav-list>
     </nav>
@@ -31,10 +18,7 @@
 
   <mat-sidenav-content class="app-sidenav-content">
     <div class="shell">
-      <app-header
-        [drawerOpened]="mobileDrawerOpen()"
-        (toggleMobileNav)="onMobileNavToggle()"
-      />
+      <app-header [drawerOpened]="mobileDrawerOpen()" (toggleMobileNav)="onMobileNavToggle()" />
       <main id="conteudo-principal" class="main" tabindex="-1" aria-label="Conteúdo principal">
         <div class="container">
           <router-outlet />
@@ -42,7 +26,7 @@
       </main>
       <footer class="footer" aria-label="Rodapé">
         <div class="container">
-          <small>&copy; {{ year }} · Currículo online</small>
+          <small>&copy; {{ year }} · Desenvolvido por Kelly Michele</small>
         </div>
       </footer>
     </div>

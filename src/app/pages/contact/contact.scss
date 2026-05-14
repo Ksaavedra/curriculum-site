@@ -29,6 +29,26 @@
   align-items: stretch;
 }
 
+.contact-again {
+  display: flex;
+  flex-direction: column;
+  gap: var(--cv-space-3);
+  align-items: stretch;
+  margin-top: var(--cv-space-2);
+}
+
+.contact-again__text {
+  margin: 0;
+  font-size: var(--cv-type-body);
+  line-height: var(--cv-type-lh-body);
+  color: var(--cv-muted);
+}
+
+.contact-again button[mat-stroked-button] {
+  align-self: flex-start;
+  min-height: var(--cv-touch-target-min);
+}
+
 .contact-form button[mat-flat-button] {
   box-sizing: border-box;
   width: 100%;
@@ -66,6 +86,35 @@
     line-height: var(--cv-type-lh-body);
     color: var(--cv-text);
     caret-color: var(--cv-accent);
+  }
+
+  .mdc-text-field--disabled {
+    .mat-mdc-text-field-wrapper {
+      background-color: color-mix(in oklab, var(--cv-surface) 82%, var(--cv-muted));
+      opacity: 0.92;
+    }
+
+    .mat-mdc-notch-piece {
+      border-color: color-mix(in oklab, var(--cv-card-border) 70%, transparent);
+    }
+
+    input.mat-mdc-input-element,
+    textarea.mat-mdc-input-element {
+      color: var(--cv-muted);
+      caret-color: transparent;
+      cursor: not-allowed;
+    }
+
+    .mdc-floating-label,
+    .mat-mdc-floating-label {
+      color: var(--cv-muted);
+    }
+
+    mat-hint,
+    .mat-mdc-form-field-hint,
+    .mat-mdc-form-field-hint-wrapper {
+      opacity: 0.85;
+    }
   }
 
   input.mat-mdc-input-element {
@@ -113,7 +162,7 @@
     margin-top: var(--cv-space-1);
   }
 
-  .mat-mdc-text-field-wrapper:has(.mat-mdc-input-element:focus-visible) {
+  .mat-mdc-text-field-wrapper:not(.mdc-text-field--disabled):has(.mat-mdc-input-element:focus-visible) {
     box-shadow: 0 0 0 2px color-mix(in oklab, var(--cv-accent) 28%, transparent);
     border-radius: var(--cv-radius-sm);
   }

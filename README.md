@@ -1,46 +1,78 @@
 # curriculum-site
 
-Currículo e portfólio frontend com Angular, TypeScript e projetos corporativos.
+Currículo e portfólio frontend desenvolvido com Angular, TypeScript e foco em aplicações corporativas, modernização de sistemas e experiência do usuário.
 
-Este repositório foi gerado com [Angular CLI](https://github.com/angular/angular-cli) versão 21.2.10.
+## 🚀 Tecnologias
 
-## Servidor de desenvolvimento
+- Angular
+- TypeScript
+- HTML
+- SCSS
+- APIs REST
+- GA4
+- AWS
+- API Gateway
+- Graph API (Azure)
+- Terraform
+- StackSpot
+- SonarQube
+- Testes Unitários
+
+## 📂 Projetos e experiências
+
+O projeto apresenta experiências e conhecimentos relacionados a:
+
+- Frontend corporativo
+- Modernização de aplicações legadas
+- Integração frontend/backend
+- Analytics e Google Analytics 4
+- Observabilidade e métricas
+- Documentação técnica
+- UX e usabilidade
+- Sistemas corporativos modernizados
+
+## ▶️ Executar projeto localmente
+
+Instalar dependências:
+
+```bash
+npm install
+```
+
+Iniciar ambiente local:
 
 ```bash
 ng serve
 ```
 
-Abre `http://localhost:4200/`. A app recarrega ao alterares ficheiros.
+Abrir no navegador:
 
-## Scaffolding
-
-```bash
-ng generate component component-name
-ng generate --help
+```txt
+http://localhost:4200/
 ```
 
-## Build
+## 🛠️ Build
 
 ```bash
 ng build
 ```
 
-Artefactos em `dist/`.
+Artefatos gerados em:
 
-## Testes unitários
-
-```bash
-ng test
+```txt
+dist/
 ```
 
-(Vitest.)
+## 🧪 Testes
 
-## Testes e2e
+Estrutura de testes unitários e testes E2E em evolução e desenvolvimento contínuo no projeto.
 
-```bash
-ng e2e
-```
+## 📌 Observações
 
-## Recursos
+Este projeto está em evolução contínua, incluindo melhorias visuais, acessibilidade, animações, experiências imersivas e modernização da interface do portfólio.
 
-[Angular CLI Overview and Command Reference](https://angular.dev/tools/cli)
+## 🔗 Angular CLI
+
+Projeto gerado utilizando Angular CLI:
+
+[https://angular.dev/tools/cli](https://angular.dev/tools/cli)

@@ -26,6 +26,9 @@ export class ContactComponent {
   });
 
   protected submit(): void {
+    if (this.success()) {
+      return;
+    }
     if (this.form.invalid) {
       this.form.markAllAsTouched();
       return;
@@ -38,7 +41,6 @@ export class ContactComponent {
       next: () => {
         this.submitting.set(false);
         this.success.set(true);
-        this.form.reset();
       },
       error: (err: { error?: { message?: string } }) => {
         this.submitting.set(false);
@@ -70,5 +72,14 @@ export class ContactComponent {
       return `Este campo aceita no máximo ${n} caracteres.`;
     }
     return null;
+  }
+
+  protected startNewMessage(): void {
+    this.errorMsg.set(null);
+    this.form.reset({ name: '', email: '', message: '' }, { emitEvent: false });
+    this.form.enable({ emitEvent: false });
+    this.form.markAsUntouched();
+    this.form.markAsPristine();
+    this.success.set(false);
   }
 }
