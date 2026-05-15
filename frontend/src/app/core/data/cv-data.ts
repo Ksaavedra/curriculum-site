@@ -23,6 +23,7 @@ export const CV_DATA: CvContent = {
     { value: '2018', label: 'Início da transição para tecnologia' },
     { value: 'Pós-graduação', label: 'Tecnologias e Inovações Web (em curso)' },
   ],
+  resumePdfUrl: '/cv/CV_Kelly.pdf',
   profile: {
     name: 'Kelly Michele',
     lastName: 'Torrico Saavedra dos Santos',
@@ -48,7 +49,7 @@ export const CV_DATA: CvContent = {
       description: '',
       subRoles: [
         {
-          role: 'Analista Engenharia de TI',
+          role: 'Analista Engenharia de TI JR',
           period: 'Mar 2023 — Atualmente · tempo integral',
           description: [
             'Atuo no desenvolvimento e evolução de projetos corporativos utilizando Angular, TypeScript, HTML, SCSS, integração com APIs REST e modernização de aplicações web.',
@@ -297,8 +298,8 @@ export const CV_DATA: CvContent = {
     {
       name: 'Site de currículo',
       description:
-        'SPA em Angular com API Express para formulário de contato, CORS e envio por e-mail opcional.',
-      tech: ['Angular', 'TypeScript', 'Express', 'REST'],
+        'Portfólio fullstack com frontend em Angular e API Node.js para formulário de contato, incluindo tema escuro, layout responsivo e integração com envio de e-mail.',
+      tech: ['Angular', 'TypeScript', 'Node.js', 'Express', 'REST API'],
       thumb: '/project-thumb-curriculum.svg',
       link: 'https://github.com/Ksaavedra/curriculum-site',
       demoUrl: '/',
@@ -306,10 +307,11 @@ export const CV_DATA: CvContent = {
     {
       name: 'API de contato',
       description:
-        'Em desenvolvimento: API REST para integração com o formulário de contato do portfólio, utilizando Node.js e Express.',
-      tech: ['Node.js', 'Express', 'REST API'],
+        'API REST em Node.js e Express para envio de mensagens do formulário de contato, com validação de campos, CORS, Helmet, rate limit e envio por e-mail via SMTP ou Resend.',
+      tech: ['Node.js', 'Express', 'REST API', 'Nodemailer', 'Helmet'],
       thumb: '/project-thumb-api.svg',
-      status: 'Em desenvolvimento',
+      link: 'https://github.com/Ksaavedra/curriculum-site',
+      status: 'Concluído',
     },
   ],
 };

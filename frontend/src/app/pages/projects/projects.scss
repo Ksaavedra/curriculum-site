@@ -99,7 +99,8 @@
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: var(--cv-space-3);
+  justify-content: space-between;
+  row-gap: var(--cv-space-3);
   margin-top: auto;
   padding-top: var(--cv-space-1);
 }
@@ -145,7 +146,6 @@
 .project-actions .status {
   display: inline-flex;
   align-items: center;
-  margin-inline-start: auto;
   padding: var(--cv-space-1) var(--cv-space-2);
   border-radius: var(--cv-radius-pill);
   font-size: 0.75rem;
@@ -160,6 +160,7 @@
   .project-actions {
     flex-direction: column;
     align-items: stretch;
+    justify-content: flex-start;
 
     .link {
       justify-content: center;

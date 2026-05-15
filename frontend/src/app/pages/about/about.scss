@@ -22,7 +22,8 @@
   &.lead {
     font-size: var(--cv-type-subtitle);
     line-height: var(--cv-type-lh-body);
-    color: var(--cv-muted);
+    font-weight: 700;
+    color: var(--cv-about-lead);
   }
 }
 
