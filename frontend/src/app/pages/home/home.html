@@ -41,7 +41,7 @@
             <h1 id="home-title" class="m-0 hero-title">
               <span class="hero-name-display">{{ heroDisplayGivenNames() }}</span>
               @if (home.profile.lastName) {
-                <span class="hero-name-surname">{{ home.profile.lastName }}</span>
+              <span class="hero-name-surname">{{ home.profile.lastName }}</span>
               }
             </h1>
             <p class="headline">{{ home.profile.headline }}</p>
@@ -50,17 +50,10 @@
             }
             <div class="actions" aria-label="Ações principais do herói"
               [attr.aria-describedby]="heroSummaryLead() ? 'hero-summary' : null">
-              @if (home.resumePdfUrl) {
-              <a [href]="home.resumePdfUrl" class="cv-btn cv-btn--primary" download>
+              <a [href]="home.resumePdfUrl" class="cv-btn cv-btn--primary" download="CV_Kelly.pdf">
                 <app-cv-icon name="download" />
                 Baixar currículo
               </a>
-              } @else {
-              <a [routerLink]="resumeFallbackRoute" class="cv-btn cv-btn--primary">
-                <app-cv-icon name="download" />
-                Baixar currículo
-              </a>
-              }
             </div>
             <div class="hero-social" aria-label="Redes sociais">
               @if (home.profile.linkedin) {
