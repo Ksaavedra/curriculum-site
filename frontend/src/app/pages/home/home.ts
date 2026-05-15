@@ -19,7 +19,7 @@ type HeroTechChip = {
 
 @Component({
   selector: 'app-home',
-  imports: [RouterLink, CvIconComponent],
+  imports: [CvIconComponent],
   templateUrl: './home.html',
   styleUrl: './home.scss',
 })
@@ -136,7 +136,8 @@ export class HomeComponent {
   }
 
   protected heroFloatMarkClass(chip: HeroTechChip): string {
-    const dominant = chip.id === 'ts' || chip.id === 'angular' ? ' hero-tech-float__mark--dominant' : '';
+    const dominant =
+      chip.id === 'ts' || chip.id === 'angular' ? ' hero-tech-float__mark--dominant' : '';
     return `hero-tech-float__mark hero-tech-float__mark--${chip.id} hero-tech-float__mark--plane-${chip.plane} hero-tech-float__mark--col-${chip.layoutColumn}${dominant}`;
   }
 
