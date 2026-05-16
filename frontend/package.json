@@ -7,6 +7,7 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
+    "test:coverage": "ng test --watch=false --coverage",
     "smoke": "playwright test e2e/smoke.spec.ts",
     "screenshots:pr": "playwright test e2e/visual-review.spec.ts",
     "verify": "npm run build && npm run smoke"
@@ -36,6 +37,7 @@
     "@angular/localize": "^21.2.0",
     "@playwright/test": "^1.59.1",
     "@types/node": "^25.7.0",
+    "@vitest/coverage-v8": "^4.1.6",
     "angular-cli-ghpages": "^3.0.3",
     "jsdom": "^28.0.0",
     "prettier": "^3.8.1",
