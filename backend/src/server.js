@@ -14,6 +14,9 @@ const PORT = Number(process.env.PORT) || 3000;
 const CORS_ORIGIN = process.env.CORS_ORIGIN || 'http://localhost:4200';
 
 const app = express();
+
+app.set('trust proxy', 1);
+
 app.use(helmet());
 app.use(
    cors({
