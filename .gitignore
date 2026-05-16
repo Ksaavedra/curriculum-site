@@ -1,6 +1,21 @@
+# VSCode
+.vscode/
+
+# Frontend VSCode
+frontend/.vscode/
+
+# Node
+node_modules/
+
+# Build
+dist/
+coverage/
+test-results/
+e2e-output/
+
 # Vercel / Netlify
-.vercel
-.netlify
+.vercel/
+.netlify/
 
 # Docs locais
 docs/

@@ -1,37 +1,39 @@
 <!doctype html>
 <html lang="pt-BR">
-  <head>
-    <meta charset="utf-8" />
-    <script>
-      (function () {
-        try {
-          var k = 'cv-theme-preference';
-          var v = localStorage.getItem(k);
-          var effective = 'light';
-          if (v === 'dark') effective = 'dark';
-          else if (v === 'light') effective = 'light';
-          else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-            effective = 'dark';
-          }
-          document.documentElement.setAttribute('data-theme', effective);
-          document.documentElement.style.colorScheme = effective === 'dark' ? 'dark' : 'light';
-        } catch (e) {}
-      })();
-    </script>
-    <title>Currículo</title>
-    <base href="/" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="dns-prefetch" href="https://cdn.simpleicons.org" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Elms+Sans:ital,wght@0,100..900;1,100..900&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="icon" type="image/x-icon" href="favicon.ico" />
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
-  </head>
-  <body>
-    <app-root></app-root>
-  </body>
+
+<head>
+  <meta charset="utf-8" />
+  <script>
+    (function () {
+      try {
+        var k = 'cv-theme-preference';
+        var v = localStorage.getItem(k);
+        var effective = 'light';
+        if (v === 'dark') effective = 'dark';
+        else if (v === 'light') effective = 'light';
+        else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+          effective = 'dark';
+        }
+        document.documentElement.setAttribute('data-theme', effective);
+        document.documentElement.style.colorScheme = effective === 'dark' ? 'dark' : 'light';
+      } catch (e) {}
+    })();
+
+  </script>
+  <title>KMTSS - CV</title>
+  <base href="/" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <link rel="icon" type="image/x-icon" href="favicon.ico" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="dns-prefetch" href="https://cdn.simpleicons.org" />
+  <link href="https://fonts.googleapis.com/css2?family=Elms+Sans:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+</head>
+
+<body>
+  <app-root></app-root>
+</body>
+
 </html>

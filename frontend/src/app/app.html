@@ -1,5 +1,4 @@
 <mat-sidenav-container class="app-root-drawer">
-  <a href="#conteudo-principal" class="cv-skip-link">Saltar para o conteúdo</a>
   <mat-sidenav #navDrawer="matSidenav" id="mobile-nav-panel" class="mobile-nav-drawer" mode="over" position="start"
     aria-label="Navegação em menu lateral para ecrãs pequenos" [fixedInViewport]="true" [autoFocus]="false"
     (openedChange)="onMobileDrawerOpened($event)">
@@ -17,6 +16,7 @@
   </mat-sidenav>
 
   <mat-sidenav-content class="app-sidenav-content">
+    <a href="#conteudo-principal" class="cv-skip-link">Saltar para o conteúdo</a>
     <div class="shell">
       <app-header [drawerOpened]="mobileDrawerOpen()" (toggleMobileNav)="onMobileNavToggle()" />
       <main id="conteudo-principal" class="main" tabindex="-1" aria-label="Conteúdo principal">

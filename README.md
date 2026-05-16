@@ -2,15 +2,32 @@
 
 Projeto fullstack de currículo e portfólio desenvolvido com Angular e Node.js.
 
-## Estrutura
+# 📁 Estrutura
 
-- frontend → Angular
-- backend → API Node.js
+```txt
+frontend → Angular
+backend  → API Node.js
+```
 
-## Tecnologias
+# 🚀 Tecnologias
+
+## Frontend
 
 - Angular
 - TypeScript
+- SCSS
+- Angular Material
+- RxJS
+- Signals
+
+## Backend
+
 - Node.js
 - Express
-- APIs REST
+- Nodemailer
+- Resend
+- REST API
+
+# 📌 Observações
+
+Projeto em evolução contínua com melhorias de acessibilidade, responsividade, testes unitários e modernização visual.

@@ -16,7 +16,7 @@ Currículo e portfólio frontend desenvolvido com Angular e TypeScript.
 - Dark Mode
 - UX/UI
 - Acessibilidade
-- Jest
+- Vitest
 - Testes Unitários
 
 # ▶️ Executar projeto
@@ -32,11 +32,19 @@ Abrir no navegador:
 http://localhost:4200
 ```
 
-# 🛠️ Build e 🧪 Testes
+# 🛠️ Build
 
 ```bash
-Estrutura de testes unitários e testes E2E em evolução e desenvolvimento contínuo no projeto.
+npm run build
 ```
+
+# 🧪 Testes
+
+```bash
+npm run test
+```
+
+Estrutura de testes unitários e testes E2E em evolução e desenvolvimento contínuo no projeto.
 
 # 📌 Observações
 
